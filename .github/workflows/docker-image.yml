@@ -67,7 +67,7 @@ jobs:
 
       - name: Extract metadata for Docker
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: ${{ github.event_name != 'pull_request' && format('{0}/uisamplespark', secrets.DOCKERHUB_USERNAME) || 'local/uisamplespark' }}
           tags: |
