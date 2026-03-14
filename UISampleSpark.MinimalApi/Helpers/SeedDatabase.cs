@@ -25,10 +25,9 @@ public static class SeedDatabase
             var employeeService = new EmployeeDatabaseService(context, serviceLogger);
             var token = new CancellationToken();
             var employeeMock = new EmployeeMock(mockLogger, 290);
-            var deptResultList = new List<DepartmentResponse>();
             foreach (var dept in employeeMock.DepartmentCollection())
             {
-                deptResultList.Add(await employeeService.SaveAsync(dept, token).ConfigureAwait(true));
+                await employeeService.SaveAsync(dept, token).ConfigureAwait(true);
             }
             var d = await employeeService.GetDepartmentsAsync(true, token).ConfigureAwait(true);
             var departmentCount = d.Count();

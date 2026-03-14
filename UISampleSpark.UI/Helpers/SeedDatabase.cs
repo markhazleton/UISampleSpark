@@ -23,12 +23,11 @@ public static class SeedDatabase
             EmployeeDatabaseService employeeService = new EmployeeDatabaseService(context, serviceLogger);
             CancellationToken token = new CancellationToken();
             EmployeeMock employeeMock = new EmployeeMock(mockLogger, 290);
-            List<DepartmentResponse> deptResultList = new List<DepartmentResponse>();
 
             // First add all departments
             foreach (DepartmentDto dept in employeeMock.DepartmentCollection())
             {
-                deptResultList.Add(await employeeService.SaveAsync(dept, token).ConfigureAwait(true));
+                await employeeService.SaveAsync(dept, token).ConfigureAwait(true);
             }
 
             // Verify departments were added

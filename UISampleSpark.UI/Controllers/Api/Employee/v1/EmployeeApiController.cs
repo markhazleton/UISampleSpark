@@ -118,6 +118,7 @@ public class EmployeeApiController : BaseApiController
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>Response for the request.</returns>
     [HttpPost]
+    [IgnoreAntiforgeryToken] // REST API uses JSON body; CSRF not applicable for non-browser clients
     [ProducesResponseType(typeof(EmployeeDto), 201)]
     [ProducesResponseType(typeof(ErrorResource), 400)]
     public async Task<ActionResult> PostAsync([FromBody] EmployeeDto? employee, CancellationToken cancellationToken = default)

@@ -164,8 +164,7 @@ public class StringExtensionsTests
     [TestMethod()]
     public void IndexOfNthTestSourceNull()
     {
-        string? myTest = null;
-        int result = myTest.IndexOfNth("3", 3);
+        int result = StringExtensions.IndexOfNth(null, "3", 3);
         Assert.AreEqual(result, 0);
     }
 
@@ -223,8 +222,7 @@ public class StringExtensionsTests
     [TestMethod()]
     public void LeftTestNullShortString()
     {
-        string? myTest = null;
-        Assert.AreEqual(string.Empty, myTest.Left(8));
+        Assert.AreEqual(string.Empty, StringExtensions.Left(null, 8));
     }
 
     /// <summary>
@@ -233,8 +231,7 @@ public class StringExtensionsTests
     [TestMethod()]
     public void LeftTestNullString()
     {
-        string? myTest = null;
-        Assert.AreEqual(string.Empty, myTest.Left(2));
+        Assert.AreEqual(string.Empty, StringExtensions.Left(null, 2));
     }
 
     /// <summary>
@@ -272,8 +269,7 @@ public class StringExtensionsTests
     [TestMethod()]
     public void RightTestNullString()
     {
-        string? myTest = null;
-        Assert.AreEqual(string.Empty, myTest.Right(2));
+        Assert.AreEqual(string.Empty, StringExtensions.Right(null, 2));
     }
 
     /// <summary>

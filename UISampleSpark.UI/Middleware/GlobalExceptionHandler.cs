@@ -56,13 +56,21 @@ public class GlobalExceptionHandler : IExceptionHandler
 
         var traceId = Activity.Current?.Id ?? httpContext.TraceIdentifier;
 
+        // Sanitize user-controlled values to prevent log forging via injected newlines
+        var sanitizedPath = (httpContext.Request.Path.Value ?? "/")
+            .Replace("\r", "", StringComparison.Ordinal)
+            .Replace("\n", "", StringComparison.Ordinal);
+        var sanitizedMethod = httpContext.Request.Method
+            .Replace("\r", "", StringComparison.Ordinal)
+            .Replace("\n", "", StringComparison.Ordinal);
+
         // Log the exception with full details and structured data
         _logger.LogError(
             exception,
             "Unhandled exception occurred. TraceId: {TraceId}, Path: {Path}, Method: {Method}, User: {User}",
             traceId,
-            httpContext.Request.Path,
-            httpContext.Request.Method,
+            sanitizedPath,
+            sanitizedMethod,
             httpContext.User?.Identity?.Name ?? "Anonymous");
 
         // Determine appropriate HTTP status code based on exception type

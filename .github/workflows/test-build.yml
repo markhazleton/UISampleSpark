@@ -85,21 +85,22 @@ jobs:
       
       - name: Comment PR with coverage
         if: github.event_name == 'pull_request'
+        continue-on-error: true
         uses: actions/github-script@v8
         with:
           script: |
             const fs = require('fs');
-            
+
             try {
               const summary = fs.readFileSync('coveragereport/Summary.txt', 'utf8');
               const coverageMatch = summary.match(/Line coverage: ([0-9.]+)%/);
               const branchMatch = summary.match(/Branch coverage: ([0-9.]+)%/);
-              
+
               const lineCoverage = coverageMatch ? coverageMatch[1] : 'N/A';
               const branchCoverage = branchMatch ? branchMatch[1] : 'N/A';
-              
+
               const emoji = parseFloat(lineCoverage) >= 90 ? '🏆' : parseFloat(lineCoverage) >= 70 ? '✨' : '✅';
-              
+
               const body = `## ${emoji} Test Coverage Report\n\n` +
                 `✅ All tests passed!\n\n` +
                 `| Metric | Value | Status |\n` +
@@ -108,15 +109,15 @@ jobs:
                 `| **Branch Coverage** | ${branchCoverage}% | Info |\n` +
                 `| **Constitution Requirement** | 25% minimum | Reference |\n\n` +
                 `View detailed report in workflow artifacts.`;
-              
-              github.rest.issues.createComment({
+
+              await github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 body: body
               });
             } catch (error) {
-              console.log('Could not read coverage summary:', error.message);
+              console.log('Could not post coverage comment:', error.message);
             }
       
       - name: Generate test summary
