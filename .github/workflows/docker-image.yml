@@ -69,7 +69,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/uisamplespark
+          images: ${{ github.event_name != 'pull_request' && format('{0}/uisamplespark', secrets.DOCKERHUB_USERNAME) || 'local/uisamplespark' }}
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha,prefix={{branch}}-
@@ -84,9 +84,7 @@ jobs:
           file: ./UISampleSpark.UI/Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
           pull: true
-          tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/uisamplespark:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/uisamplespark:${{ github.run_number }}
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max

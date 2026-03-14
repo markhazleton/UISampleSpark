@@ -64,7 +64,6 @@ public class SitemapController : Controller
     {
         var baseUrl = $"{Request.Scheme}://{Request.Host}";
         var now = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
-        var urlHelper = _urlHelperFactory.GetUrlHelper(ControllerContext);
 
         // Get all discovered routes
         var discoveredRoutes = GetDiscoveredRoutes(baseUrl, now);

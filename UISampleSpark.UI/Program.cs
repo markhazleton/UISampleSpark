@@ -51,7 +51,8 @@ builder.Services.AddMarkdown();
 // Session and MVC configuration
 builder.Services.AddSession();
 builder.Services.AddRazorPages();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(options =>
+    options.Filters.Add(new Microsoft.AspNetCore.Mvc.AutoValidateAntiforgeryTokenAttribute()));
 builder.Services.AddServerSideBlazor();
 
 // Monitoring and diagnostics

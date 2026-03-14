@@ -56,13 +56,13 @@ public static class ConfigurationExtensions
     {
         if (!string.IsNullOrEmpty(Value))
         {
-            return Value ?? string.Empty;
+            return Value;
         }
         if (string.IsNullOrEmpty(defaultValue))
         {
             return string.Empty;
         }
-        return defaultValue ?? string.Empty;
+        return defaultValue;
     }
 
     /// <summary>

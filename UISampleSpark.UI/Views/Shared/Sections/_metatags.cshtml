@@ -51,9 +51,9 @@
     private string GenerateEnhancedDescription(string controllerName, string actionName, ViewDataDictionary viewData)
     {
         // Check if we have a custom description first
-        if (viewData.ContainsKey("Description") && !string.IsNullOrEmpty(viewData["Description"]?.ToString()))
+        if (viewData.TryGetValue("Description", out var descValue) && !string.IsNullOrEmpty(descValue?.ToString()))
         {
-            return viewData["Description"]?.ToString() ?? string.Empty;
+            return descValue?.ToString() ?? string.Empty;
         }
 
         // Generate contextual descriptions

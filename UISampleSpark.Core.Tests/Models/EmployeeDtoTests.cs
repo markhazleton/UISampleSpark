@@ -229,7 +229,8 @@ public class EmployeeDtoTests
         EmployeeDto employee = new EmployeeDto(1, "John Doe", 30, "California", "USA", EmployeeDepartmentEnum.IT);
 
         // Act
-        bool result = employee.Equals(employee);
+        object sameRef = employee;
+        bool result = employee.Equals(sameRef);
 
         // Assert
         Assert.IsTrue(result, "Same instance should be equal to itself");
@@ -289,7 +290,7 @@ public class EmployeeDtoTests
         EmployeeDto employee = new EmployeeDto(1, "John Doe", 30, "California", "USA", EmployeeDepartmentEnum.IT);
 
         // Act
-        bool result = employee.Equals(null);
+        bool result = employee.Equals((object?)null);
 
         // Assert
         Assert.IsFalse(result, "Employee should not be equal to null");
@@ -325,10 +326,11 @@ public class EmployeeDtoTests
     public void Equals_SingleInstanceNull_ReturnsTrue()
     {
         // Arrange
-        EmployeeDto employee1 = null;
+        EmployeeDto? employee1 = null;
+        EmployeeDto? sameRef = employee1;
 
         // Act
-        bool result = Equals(employee1, employee1);
+        bool result = Equals(employee1, sameRef);
         // Assert
         Assert.IsTrue(result, "A null instance should be considered equal to itself");
     }

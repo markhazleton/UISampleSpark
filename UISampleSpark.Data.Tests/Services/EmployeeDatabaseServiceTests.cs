@@ -49,9 +49,7 @@ public class EmployeeDatabaseServiceTests : IDisposable
 
         // Act
         PagingParameterModel paging = new PagingParameterModel();
-        int initResults = (await employeeService!.GetEmployeesAsync(paging, ct).ConfigureAwait(true)).Count();
-        int result = await employeeService.AddMultipleEmployeesAsync(namelist).ConfigureAwait(true);
-        int afterResults = (await employeeService.GetEmployeesAsync(paging, ct).ConfigureAwait(true)).Count();
+        await employeeService!.AddMultipleEmployeesAsync(namelist).ConfigureAwait(true);
         System.Collections.Generic.IEnumerable<EmployeeDto> empList = await employeeService.GetEmployeesAsync(paging, ct).ConfigureAwait(true);
         EmployeeDto? emp1 = empList.Where(w => w.Name == namelist[0]).FirstOrDefault();
 

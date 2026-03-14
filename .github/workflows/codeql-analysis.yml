@@ -7,6 +7,7 @@ on:
       - '**.cs'
       - '**.csproj'
       - '.github/workflows/codeql-analysis.yml'
+      - '.github/codeql/codeql-config.yml'
   pull_request:
     branches: [ "main" ]
     paths:
@@ -55,19 +56,8 @@ jobs:
       uses: github/codeql-action/init@v4
       with:
         languages: ${{ matrix.language }}
-        # Configure CodeQL queries
         queries: +security-and-quality
-        # Enable all built-in queries including:
-        # - security-extended (all security queries)
-        # - security-and-quality (security + code quality)
-        config: |
-          paths-ignore:
-            - '**/obj/**'
-            - '**/bin/**'
-            - '**/TestResults/**'
-            - '**/wwwroot/lib/**'
-            - '**/*.min.js'
-            - '**/*.Designer.cs'
+        config-file: .github/codeql/codeql-config.yml
 
     # Autobuild attempts to build C# project
     - name: Autobuild

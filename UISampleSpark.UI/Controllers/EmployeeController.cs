@@ -47,7 +47,7 @@ public class EmployeeController : BaseController
         if (employee != null)
             employee.Id = id ?? 0;
 
-        EmployeeResponse response = await client.DeleteAsync(id ?? 0, cts.Token);
+        _ = await client.DeleteAsync(id ?? 0, cts.Token);
         return Redirect("/Employee");
     }
     /// <summary>
@@ -95,7 +95,7 @@ public class EmployeeController : BaseController
         if (employee != null)
             employee.Id = id ?? 0;
 
-        EmployeeResponse response = await client.SaveAsync(employee, token);
+        _ = await client.SaveAsync(employee, token);
         return Redirect("/Employee");
     }
     /// <summary>

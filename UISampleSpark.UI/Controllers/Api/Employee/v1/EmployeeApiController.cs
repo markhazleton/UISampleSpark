@@ -13,6 +13,7 @@ namespace UISampleSpark.UI.Controllers.Api.Employee.v1;
 /// </remarks>
 [Route("api/employee")]
 [ApiController]
+[IgnoreAntiforgeryToken] // REST API: uses JSON body with Bearer tokens, not cookie-based auth; CSRF not applicable
 public class EmployeeApiController : BaseApiController
 {
     private readonly IEmployeeService _employeeService;

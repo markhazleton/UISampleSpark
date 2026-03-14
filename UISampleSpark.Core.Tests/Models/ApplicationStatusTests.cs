@@ -20,7 +20,7 @@ public class ApplicationStatusTests
         if (File.Exists(dllFilePath))
         {
             Assembly myFileAssembly = Assembly.LoadFrom(dllFilePath);
-            ApplicationStatus myFileStatus = new ApplicationStatus(myFileAssembly);
+            _ = new ApplicationStatus(myFileAssembly);
         }
 
         // Act

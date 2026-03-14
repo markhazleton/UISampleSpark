@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using UISampleSpark.Core.Models;
 using UISampleSpark.Data.Models;
@@ -29,17 +30,18 @@ public static class SeedDatabase
             {
                 await employeeService.SaveAsync(dept, token).ConfigureAwait(true);
             }
-            var d = await employeeService.GetDepartmentsAsync(true, token).ConfigureAwait(true);
-            var departmentCount = d.Count();
             employeeMock.EmployeeCollection()?.ForEach(async emp =>
             {
                 await employeeService.SaveAsync(emp, token).ConfigureAwait(true);
             });
-            var e = await employeeService.GetEmployeesAsync(new PagingParameterModel(), token).ConfigureAwait(true);
         }
-        catch (Exception ex)
+        catch (InvalidOperationException ex)
         {
             Console.WriteLine($"Database seed error: {ex.Message}");
+        }
+        catch (DbUpdateException ex)
+        {
+            Console.WriteLine($"Database update error during seed: {ex.Message}");
         }
     }
 }

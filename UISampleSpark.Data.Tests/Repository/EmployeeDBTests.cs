@@ -161,8 +161,6 @@ public class EmployeeDBTests : IDisposable
 
         // Add New Employee with Update
         EmployeeDto? addResult = await employeeDB.UpdateAsync(newEmp);
-        // Get updated count of employees
-        System.Collections.Generic.List<EmployeeDto> updatedResult = await employeeDB.EmployeeCollectionAsync();
         /// Delete the Employee
         bool result = await employeeDB.DeleteEmployeeAsync(addResult.Id);
         // Get result after delete
@@ -232,9 +230,6 @@ public class EmployeeDBTests : IDisposable
 
         // Add New Employee with Update
         EmployeeDto? addResult = await employeeDB.UpdateAsync(newEmp);
-
-        // Get updated count of employees
-        System.Collections.Generic.List<EmployeeDto> updatedResult = await employeeDB.EmployeeCollectionAsync();
         /// Update the Employee
         addResult.Name = "Test User 2";
         addResult.Age = 44;

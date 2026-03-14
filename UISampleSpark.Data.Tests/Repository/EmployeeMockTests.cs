@@ -249,14 +249,8 @@ namespace UISampleSpark.Data.Tests.Repository
 
             // Act
 
-            // Get Current count of employees
-            System.Collections.Generic.List<EmployeeDto> initResult = await employeeDB.EmployeeCollectionAsync();
-
             // Add New Employee with Update
             EmployeeDto? addResult = await employeeDB.UpdateAsync(newEmp);
-
-            // Get updated count of employees
-            System.Collections.Generic.List<EmployeeDto> updatedResult = await employeeDB.EmployeeCollectionAsync();
             /// Update the Employee
             addResult.Name = "Test User 2";
             addResult.Age = 44;

@@ -8,7 +8,6 @@ public class EmployeeContext : DbContext
 
     public EmployeeContext(DbContextOptions<EmployeeContext> options) : base(options)
     {
-        ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -19,6 +18,8 @@ public class EmployeeContext : DbContext
         {
             optionsBuilder.UseInMemoryDatabase("Employee");
         }
+
+        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -51,7 +51,7 @@ app.MapPost("/employees", async (IEmployeeService employeeService, EmployeeDto e
     {
         return Results.BadRequest("Employee not saved");
     }
-    if (result.Success == false)
+    if (!result.Success)
     {
         return Results.BadRequest("Employee not saved");
     }

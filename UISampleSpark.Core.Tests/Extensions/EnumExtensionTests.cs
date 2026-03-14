@@ -163,9 +163,6 @@ public class EnumExtensionTests
     [TestMethod]
     public void GetAllValues_ReturnsAllEnumValues()
     {
-        // Arrange
-        TestEnum myTest = TestEnum.First;
-
         // Act
         IEnumerable<TestEnum> values = EnumExtension.GetAllValues<TestEnum>();
 
@@ -178,9 +175,6 @@ public class EnumExtensionTests
     [TestMethod]
     public void ParseCaseInsensitive_ParsesEnumValueCaseInsensitive()
     {
-        // Arrange
-        TestEnum myTest = TestEnum.First;
-
         // Act
         TestEnum value = EnumExtension.ParseCaseInsensitive<TestEnum>("fIrSt");
 
@@ -191,9 +185,6 @@ public class EnumExtensionTests
     [TestMethod]
     public void GetNames_ReturnsAllEnumNames()
     {
-        // Arrange
-        TestEnum myTest = TestEnum.First;
-
         // Act
         string[] names = EnumExtension.GetNames<TestEnum>();
 
@@ -206,9 +197,6 @@ public class EnumExtensionTests
     [TestMethod]
     public void GetUnderlyingType_ReturnsEnumUnderlyingType()
     {
-        // Arrange
-        TestEnum myTest = TestEnum.First;
-
         // Act
         Type underlyingType = EnumExtension.GetUnderlyingType<TestEnum>();
 

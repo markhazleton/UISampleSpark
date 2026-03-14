@@ -127,12 +127,9 @@ public sealed class PropertyBag<TKey, TValue>
     public void GetObjectData(SerializationInfo info)
     {
         ArgumentNullException.ThrowIfNull(info);
-        foreach (TKey key in _Dictionary.Keys)
+        foreach (TKey key in _Dictionary.Keys.Where(k => k != null))
         {
-            if (key != null)
-            {
-                info.AddValue(key.ToString()!, _Dictionary[key]);
-            }
+            info.AddValue(key.ToString()!, _Dictionary[key]);
         }
     }
 }

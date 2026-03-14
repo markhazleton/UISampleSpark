@@ -20,7 +20,6 @@ public static class BreadcrumbHelper
         // Always start with Home
         breadcrumbs.Add(("Home", "/"));
 
-        var areaName = viewContext.RouteData.Values["area"]?.ToString();
         var controllerName = viewContext.RouteData.Values["controller"]?.ToString();
         var actionName = viewContext.RouteData.Values["action"]?.ToString();
         var idValue = viewContext.RouteData.Values["id"]?.ToString();
@@ -54,12 +53,10 @@ public static class BreadcrumbHelper
         }
 
         // Skip if we're already on the home page (for regular MVC controllers)
-        if (string.IsNullOrEmpty(controllerName) || controllerName.Equals("Home", StringComparison.OrdinalIgnoreCase))
+        if ((string.IsNullOrEmpty(controllerName) || controllerName.Equals("Home", StringComparison.OrdinalIgnoreCase))
+            && (string.IsNullOrEmpty(actionName) || actionName.Equals("Index", StringComparison.OrdinalIgnoreCase)))
         {
-            if (string.IsNullOrEmpty(actionName) || actionName.Equals("Index", StringComparison.OrdinalIgnoreCase))
-            {
-                return breadcrumbs;
-            }
+            return breadcrumbs;
         }
 
         // Handle different controller patterns

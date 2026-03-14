@@ -7,7 +7,7 @@ namespace UISampleSpark.Core.Extensions;
 public class TreeNode<T> where T : notnull, IComparable<T>
 {
     public T Value { get; init; }
-    private List<TreeNode<T>> _children = new();
+    private readonly List<TreeNode<T>> _children = new();
     public TreeNode(T value) => Value = value;
     public TreeNode<T> AddChild(T newChild)
     {

@@ -26,14 +26,14 @@ public static class EnumerableExtensions
             case MinMaxOption.Minimum:
                 return sequence
                     .Select(obj => Tuple.Create(obj, keySelector(obj)))
-                    .Aggregate((Tuple<T, TKey>)null,
-                        (best, cur) => best == null || cur.Item2.CompareTo(best.Item2) < 0 ? cur : best).Item1;
+                    .Aggregate(default(Tuple<T, TKey>),
+                        (best, cur) => best == null || cur.Item2.CompareTo(best.Item2) < 0 ? cur : best)!.Item1;
 
             case MinMaxOption.Maximum:
                 return sequence
                     .Select(obj => Tuple.Create(obj, keySelector(obj)))
-                    .Aggregate((Tuple<T, TKey>)null,
-                        (best, cur) => best == null || cur.Item2.CompareTo(best.Item2) > 0 ? cur : best).Item1;
+                    .Aggregate(default(Tuple<T, TKey>),
+                        (best, cur) => best == null || cur.Item2.CompareTo(best.Item2) > 0 ? cur : best)!.Item1;
 
             case MinMaxOption.First:
                 return sequence.FirstOrDefault();

@@ -48,12 +48,18 @@ public abstract class BaseController : Controller
             throw new ArgumentException("Invalid EmployeeId", nameof(EmployeeId));
         }
 
-        string folderPath = Path.Combine(webHostEnvironment.WebRootPath, "images", sanitizedEmployeeId);
+        string imagesRoot = Path.GetFullPath(Path.Combine(webHostEnvironment.WebRootPath, "images"));
+        string folderPath = Path.GetFullPath(Path.Combine(imagesRoot, sanitizedEmployeeId));
+        if (!folderPath.StartsWith(imagesRoot, StringComparison.OrdinalIgnoreCase))
+        {
+            throw new ArgumentException("Invalid EmployeeId", nameof(EmployeeId));
+        }
         if (!Directory.Exists(folderPath))
         {
             Directory.CreateDirectory(folderPath);
         }
-        string filePath = Path.Combine(folderPath, $"{Guid.NewGuid()}_{$"{Path.GetFileNameWithoutExtension(ProfileImage.FileName)}.png"}");
+        string safeFileName = $"{Guid.NewGuid()}_{Path.GetFileNameWithoutExtension(ProfileImage.FileName)}.png";
+        string filePath = Path.GetFullPath(Path.Combine(folderPath, safeFileName));
 
         using var stream = ProfileImage.OpenReadStream();
         using var original = SKBitmap.Decode(stream);

@@ -23,12 +23,12 @@ try
 catch (Microsoft.Data.Sqlite.SqliteException ex)
 {
     Console.WriteLine("SQLite Database Initialization error");
-    Console.WriteLine(ex.ToString());
+    Console.WriteLine(ex);
 }
 catch (InvalidOperationException ex)
 {
     Console.WriteLine("Database Initialization error");
-    Console.WriteLine(ex.ToString());
+    Console.WriteLine(ex);
 }
 
 EmployeeDatabaseService employeeService = new EmployeeDatabaseService(context, serviceLogger);
@@ -50,24 +50,24 @@ try
         DepartmentResponse dep = await employeeService.SaveDepartmentAsync(dept);
         departmentList.Add(dep);
     });
-    Console.WriteLine($"Department Success Count:{departmentList?.Where(w => w.Success == true).ToArray().Length}");
+    Console.WriteLine($"Department Success Count:{departmentList?.Where(w => w.Success).ToArray().Length}");
 
     Console.WriteLine("Add sample Employees to new database");
     employeeMock.EmployeeCollection()?.ForEach(async emp =>
     {
         employeeList.Add(await employeeService.SaveAsync(emp, ct));
     });
-    Console.WriteLine($"Employee Success Count:{employeeList?.Where(w => w.Success == true).ToArray().Length}");
+    Console.WriteLine($"Employee Success Count:{employeeList?.Where(w => w.Success).ToArray().Length}");
 }
 catch (DbUpdateException ex)
 {
     Console.WriteLine("Database Update error");
-    Console.WriteLine(ex.ToString());
+    Console.WriteLine(ex);
 }
 catch (InvalidOperationException ex)
 {
     Console.WriteLine("Database Load error");
-    Console.WriteLine(ex.ToString());
+    Console.WriteLine(ex);
 }
 
 

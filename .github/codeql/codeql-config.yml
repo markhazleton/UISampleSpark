@@ -31,9 +31,9 @@ paths-ignore:
   - '**/*.min.js'
   - '**/*.min.css'
   - '**/*.Designer.cs'
+  - '**/*.g.cs'
+  - '**/generated/**'
   - '**/Migrations/**'
-  - 'UISampleSpark.Core.Tests'
-  - 'UISampleSpark.Data.Tests'
 
 # Query filters - adjust severity thresholds
 query-filters:

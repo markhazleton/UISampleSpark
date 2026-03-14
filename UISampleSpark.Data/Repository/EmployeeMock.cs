@@ -85,18 +85,17 @@ public class EmployeeMock : IEmployeeDB
     private static EmployeeDto? Create(Employee? item, int id)
     {
         if (item == null) return null;
-        EmployeeDepartmentEnum empDept = (EmployeeDepartmentEnum)(item?.DepartmentId ?? 1);
-
+        EmployeeDepartmentEnum empDept = (EmployeeDepartmentEnum)item.DepartmentId;
 
         return new EmployeeDto(
             id,
-            item?.Name ?? string.Empty,
-            item?.Age ?? 99,
-            item?.State ?? string.Empty,
-            item?.Country ?? string.Empty,
-             empDept,
-            item?.ProfilePicture ?? "default.jpg",
-            gender: GetGenderEnum(item?.Gender)
+            item.Name ?? string.Empty,
+            item.Age,
+            item.State ?? string.Empty,
+            item.Country ?? string.Empty,
+            empDept,
+            item.ProfilePicture ?? "default.jpg",
+            gender: GetGenderEnum(item.Gender)
             );
     }
 

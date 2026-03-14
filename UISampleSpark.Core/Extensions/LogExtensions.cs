@@ -101,15 +101,12 @@ public static class LogExtensions
         PropertyInfo[] properties = type.GetProperties();
         Dictionary<string, object> dictionary = [];
 
-        foreach (PropertyInfo propertyInfo in properties)
+        foreach (PropertyInfo propertyInfo in properties.Where(p => IsSimpleType(p.PropertyType)))
         {
-            if (propertyInfo is not null && IsSimpleType(propertyInfo.PropertyType))
+            object? value = propertyInfo.GetValue(record, []);
+            if (value is not null)
             {
-                object? value = propertyInfo.GetValue(record, []);
-                if (value is not null)
-                {
-                    dictionary.Add(propertyInfo.Name, value);
-                }
+                dictionary.Add(propertyInfo.Name, value);
             }
         }
 

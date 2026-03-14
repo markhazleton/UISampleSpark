@@ -30,18 +30,11 @@ public static class SeedDatabase
                 await employeeService.SaveAsync(dept, token).ConfigureAwait(true);
             }
 
-            // Verify departments were added
-            IEnumerable<DepartmentDto> d = await employeeService.GetDepartmentsAsync(true, token).ConfigureAwait(true);
-            int departmentCount = d.Count();
-
             // Then add all employees
             employeeMock.EmployeeCollection()?.ForEach(async emp =>
             {
                 await employeeService.SaveAsync(emp, token).ConfigureAwait(true);
             });
-
-            // Verify employees were added
-            IEnumerable<EmployeeDto> e = await employeeService.GetEmployeesAsync(new PagingParameterModel(), token).ConfigureAwait(true);
         }
         catch (InvalidOperationException ex)
         {

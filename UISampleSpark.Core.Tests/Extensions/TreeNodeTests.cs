@@ -25,8 +25,6 @@ public class TreeNodeTests
         child3.AddChild(11);
         child3.AddChild(12);
 
-        List<int> test = rootNode.EnumerateSelfAndDescendants().ToList();
-        IEnumerable<(int Depth, int Value)> test2 = rootNode.EnumerateSelfAndDescendantsWithDepth();
 
 
         // Assert

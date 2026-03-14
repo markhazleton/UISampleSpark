@@ -62,7 +62,7 @@ public static class EnumExtension
     {
         ArgumentNullException.ThrowIfNull(enumValue);
         Type enumType = enumValue.GetType();
-        return Enum.GetValues(enumType).Cast<Enum>().ToDictionary(t => (int)(object)t, t => t.ToString());
+        return Enum.GetValues(enumType).Cast<Enum>().ToDictionary(t => Convert.ToInt32(t), t => t.ToString());
     }
 
     /// <summary>

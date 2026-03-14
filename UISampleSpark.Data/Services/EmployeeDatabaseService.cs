@@ -197,8 +197,6 @@ public class EmployeeDatabaseService : IEmployeeService
             .ToListAsync(token)
             .ConfigureAwait(false);
 
-        object paginationMetadata = paging.GetMetaData(totalCount);
-        
         return GetEmployeeDtos(items);
     }
 

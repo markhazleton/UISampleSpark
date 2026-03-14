@@ -72,14 +72,11 @@ public class MvcEmployeeController : BaseController
     /// <returns></returns>
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Delete(int id, EmployeeDto employee)
+    public async Task<ActionResult> Delete(int id, EmployeeDto? employee)
     {
-        if (employee != null)
+        if (employee?.Id == id)
         {
-            if (employee.Id == id)
-            {
-                _ = await client.DeleteAsync(id, cts.Token);
-            }
+            _ = await client.DeleteAsync(id, cts.Token);
         }
         return RedirectToAction("Index");
     }
@@ -126,20 +123,18 @@ public class MvcEmployeeController : BaseController
     public async Task<ActionResult> Edit(int id, EmployeeDto? employee)
     {
         if (employee is null)
-            return RedirectToAction("Edit", new { employee?.Id });
+            return RedirectToAction("Edit");
 
-        employee.ProfilePicture = UploadedFile(employee.ProfileImage, EmployeeId: employee?.Id.ToString());
+        employee.ProfilePicture = UploadedFile(employee.ProfileImage, EmployeeId: employee.Id.ToString());
 
         EmployeeResponse? reqResponse = null;
-        if (employee != null)
-        {
-            if (employee.Id == id)
-                reqResponse = await client.UpdateAsync(id, employee, cts.Token);
-        }
+        if (employee.Id == id)
+            reqResponse = await client.UpdateAsync(id, employee, cts.Token);
+
         if (reqResponse?.Success == true)
             return RedirectToAction("Index");
 
-        return RedirectToAction("Edit", new { employee?.Id });
+        return RedirectToAction("Edit", new { employee.Id });
     }
 
     /// <summary>

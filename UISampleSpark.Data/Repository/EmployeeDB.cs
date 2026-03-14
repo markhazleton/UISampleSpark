@@ -188,7 +188,7 @@ public class EmployeeDB : IEmployeeDB
     {
         if (dept == null) return null;
 
-        if (dept?.Id == 0)
+        if (dept.Id == 0)
         {
             return null;
         }
