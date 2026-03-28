@@ -290,7 +290,7 @@ public class EmployeeDtoTests
         EmployeeDto employee = new EmployeeDto(1, "John Doe", 30, "California", "USA", EmployeeDepartmentEnum.IT);
 
         // Act
-        bool result = employee.Equals(null);
+        bool result = object.Equals(employee, null);
 
         // Assert
         Assert.IsFalse(result, "Employee should not be equal to null");

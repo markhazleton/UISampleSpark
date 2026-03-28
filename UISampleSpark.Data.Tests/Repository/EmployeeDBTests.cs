@@ -223,10 +223,6 @@ public class EmployeeDBTests : IDisposable
             EmployeeDepartmentEnum.IT);
 
         // Act
-
-        // Get Current count of employees
-        System.Collections.Generic.List<EmployeeDto> initResult = await employeeDB.EmployeeCollectionAsync();
-
         // Add New Employee with Update
         EmployeeDto? addResult = await employeeDB.UpdateAsync(newEmp);
         /// Update the Employee

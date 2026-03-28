@@ -152,10 +152,15 @@ public class EmployeeHtmxController : BaseController
 
     private static bool MatchesSearch(EmployeeDto employee, string search)
     {
-        return (employee.Name?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
-            || (employee.GenderName?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
-            || (employee.State?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
-            || (employee.Country?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
-            || (employee.DepartmentName?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false);
+        string[] fields =
+        [
+            employee.Name ?? string.Empty,
+            employee.GenderName ?? string.Empty,
+            employee.State ?? string.Empty,
+            employee.Country ?? string.Empty,
+            employee.DepartmentName ?? string.Empty
+        ];
+
+        return fields.Any(field => field.Contains(search, StringComparison.OrdinalIgnoreCase));
     }
 }
