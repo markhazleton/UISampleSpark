@@ -85,7 +85,8 @@ Move from `copilot/` to permanent locations when:
 
 **THIS PROJECT IS EDUCATIONAL-ONLY** per Constitution Principle IV:
 - ❌ NO authentication/authorization implemented (intentional)
-- ❌ NO rate limiting (intentional)
+- ⚠️ Rate limiting is implemented selectively for current API surfaces (do not remove unless explicitly requested)
+- ⚠️ Feature-flagged API key protection is implemented for selected scenarios (keep aligned with current configuration)
 - ✅ Security scanning via CodeQL + Trivy (mandatory)
 - ✅ SECURITY.md must document limitations (mandatory)
 
@@ -148,7 +149,12 @@ Move from `copilot/` to permanent locations when:
 
 14. **Health checks** ✅ **& ~~rate limiting~~** *(Partial - Constitution Principles VII & IV)*
     Important for production & abuse protection.
-    **THIS PROJECT**: Health checks at `/health` implemented; rate limiting omitted per educational scope.
+    **THIS PROJECT**: Health checks at `/health` are implemented and per-IP rate limiting is now active on selected endpoints.
+
+### Recent Security Baseline (2026-03)
+
+- Preserve per-IP rate limiting in both UI and Minimal API hosts unless a user explicitly asks to change it.
+- Preserve feature-flagged multi-key API protection behavior when modifying API middleware or endpoint wiring.
 
 15. **Store config in appsettings + Options pattern** ✅ *(Best practice)*
     Clean, testable, and future-proof.
