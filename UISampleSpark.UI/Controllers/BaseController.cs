@@ -58,8 +58,14 @@ public abstract class BaseController : Controller
         {
             Directory.CreateDirectory(folderPath);
         }
-        string safeFileName = $"{Guid.NewGuid()}_{Path.GetFileNameWithoutExtension(ProfileImage.FileName)}.png";
-        string filePath = Path.GetFullPath(Path.Combine(folderPath, safeFileName));
+        string originalFileName = Path.GetFileNameWithoutExtension(ProfileImage.FileName);
+        string sanitizedFileName = Path.GetFileName(originalFileName);
+        string safeFileName = $"{Guid.NewGuid()}_{sanitizedFileName}.png";
+        string filePath = Path.GetFullPath(Path.Join(folderPath, safeFileName));
+        if (!filePath.StartsWith(folderPath, StringComparison.OrdinalIgnoreCase))
+        {
+            throw new ArgumentException("Invalid file path generated from upload", nameof(ProfileImage));
+        }
 
         using var stream = ProfileImage.OpenReadStream();
         using var original = SKBitmap.Decode(stream);
