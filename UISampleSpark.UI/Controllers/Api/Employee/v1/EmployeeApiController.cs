@@ -13,7 +13,7 @@ namespace UISampleSpark.UI.Controllers.Api.Employee.v1;
 /// </remarks>
 [Route("api/employee")]
 [ApiController]
-[IgnoreAntiforgeryToken] // REST API: uses JSON body with Bearer tokens, not cookie-based auth; CSRF not applicable
+[AutoValidateAntiforgeryToken]
 public class EmployeeApiController : BaseApiController
 {
     private readonly IEmployeeService _employeeService;
@@ -119,7 +119,6 @@ public class EmployeeApiController : BaseApiController
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>Response for the request.</returns>
     [HttpPost]
-    [IgnoreAntiforgeryToken] // REST API uses JSON body; CSRF not applicable for non-browser clients
     [ProducesResponseType(typeof(EmployeeDto), 201)]
     [ProducesResponseType(typeof(ErrorResource), 400)]
     public async Task<ActionResult> PostAsync([FromBody] EmployeeDto? employee, CancellationToken cancellationToken = default)

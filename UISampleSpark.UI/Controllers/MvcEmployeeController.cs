@@ -74,10 +74,16 @@ public class MvcEmployeeController : BaseController
     [ValidateAntiForgeryToken]
     public async Task<ActionResult> Delete(int id, EmployeeDto? employee)
     {
-        if (employee?.Id == id)
-        {
-            _ = await client.DeleteAsync(id, cts.Token);
-        }
+        if (id <= 0 || employee is null || employee.Id != id)
+            return BadRequest();
+
+        // Ensure the target exists before issuing a delete to avoid blind operations.
+        EmployeeResponse? existing = await client.FindEmployeeByIdAsync(id, cts.Token);
+        if (existing?.Success != true || existing.Resource is null)
+            return NotFound();
+
+        _ = await client.DeleteAsync(id, cts.Token);
+
         return RedirectToAction("Index");
     }
 
