@@ -71,6 +71,7 @@ builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 // Application-specific services
 builder.Services.AddScoped<IHttpRequestResultService, HttpRequestResultService>();
+builder.Services.AddScoped<ApiKeyAuthorizationFilter>();
 builder.Services.AddBootswatchThemeSwitcher();
 builder.Services.AddMarkdown();
 
@@ -127,6 +128,33 @@ app.UseMyHttpContext();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseBootswatchAll();
+
+string[] configuredApiKeys = builder.Configuration
+    .GetSection("ApiSecurity:ApiKeys")
+    .Get<string[]>()?
+    .Where(static key => !string.IsNullOrWhiteSpace(key))
+    .Take(10)
+    .ToArray() ?? [];
+bool requireApiKey = builder.Configuration.GetValue("ApiSecurity:RequireApiKey", true);
+
+if (requireApiKey && configuredApiKeys.Length > 0)
+{
+    app.Use(async (context, next) =>
+    {
+        if (!context.Request.Cookies.ContainsKey("X-API-Key"))
+        {
+            context.Response.Cookies.Append("X-API-Key", configuredApiKeys[0], new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                IsEssential = true
+            });
+        }
+
+        await next();
+    });
+}
 
 app.UseRouting();
 app.UseRateLimiter();

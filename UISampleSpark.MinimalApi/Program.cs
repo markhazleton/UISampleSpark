@@ -6,6 +6,8 @@ using UISampleSpark.Data.Models;
 using UISampleSpark.Data.Services;
 using UISampleSpark.MinimalApi.Helpers;
 using System.Threading.RateLimiting;
+using System.Security.Cryptography;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,6 +55,24 @@ builder.Services.AddScoped<IEmployeeService, EmployeeDatabaseService>();
 builder.Services.AddScoped<IEmployeeClient, EmployeeDatabaseClient>();
 SeedDatabase.DatabaseInitialization(new EmployeeContext());
 
+string[] configuredApiKeys = builder.Configuration
+    .GetSection("ApiSecurity:ApiKeys")
+    .Get<string[]>()?
+    .Where(static key => !string.IsNullOrWhiteSpace(key))
+    .Take(10)
+    .ToArray() ?? [];
+bool requireApiKey = builder.Configuration.GetValue("ApiSecurity:RequireApiKey", true);
+
+ValueTask<object?> ApiKeyFilter(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
+{
+    if (!IsApiKeyAuthorized(context.HttpContext.Request, requireApiKey, configuredApiKeys))
+    {
+        return ValueTask.FromResult<object?>(Results.Unauthorized());
+    }
+
+    return next(context);
+}
+
 
 var app = builder.Build();
 
@@ -82,14 +102,14 @@ app.MapPost("/employees", async (IEmployeeService employeeService, EmployeeDto e
     }
 
     return Results.Created($"/employees/{result.Resource.Id}", result);
-}).RequireRateLimiting("PerIpLimit");
+}).AddEndpointFilter(ApiKeyFilter).RequireRateLimiting("PerIpLimit");
 
 app.MapGet("/employees", async (IEmployeeService employeeService, CancellationToken token) =>
 {
     var paging = new PagingParameterModel();
     var employees = await employeeService.GetEmployeesAsync(paging, token);
     return employees;
-}).RequireRateLimiting("PerIpLimit");
+}).AddEndpointFilter(ApiKeyFilter).RequireRateLimiting("PerIpLimit");
 
 app.MapGet("/employees/{id}", async (IEmployeeService employeeService, int id, CancellationToken token) =>
 {
@@ -99,15 +119,55 @@ app.MapGet("/employees/{id}", async (IEmployeeService employeeService, int id, C
         return Results.NotFound();
     }
     return Results.Ok(employee);
-}).RequireRateLimiting("PerIpLimit");
+}).AddEndpointFilter(ApiKeyFilter).RequireRateLimiting("PerIpLimit");
 
 app.MapGet("/departments", async (IEmployeeService employeeService, CancellationToken token) =>
 {
     var employee = await employeeService.GetDepartmentsAsync(false, token);
     return employee;
-}).RequireRateLimiting("PerIpLimit");
+}).AddEndpointFilter(ApiKeyFilter).RequireRateLimiting("PerIpLimit");
 
 app.Run();
+
+static bool IsApiKeyAuthorized(HttpRequest request, bool requireApiKey, IReadOnlyCollection<string> configuredApiKeys)
+{
+    if (!requireApiKey)
+    {
+        return true;
+    }
+
+    if (configuredApiKeys.Count == 0)
+    {
+        return true;
+    }
+
+    string? providedApiKey = null;
+    if (request.Headers.TryGetValue("X-API-Key", out var headerValue))
+    {
+        providedApiKey = headerValue.ToString();
+    }
+    else if (request.Cookies.TryGetValue("X-API-Key", out var cookieValue))
+    {
+        providedApiKey = cookieValue;
+    }
+
+    if (string.IsNullOrWhiteSpace(providedApiKey))
+    {
+        return false;
+    }
+
+    byte[] provided = Encoding.UTF8.GetBytes(providedApiKey);
+    foreach (string configuredApiKey in configuredApiKeys)
+    {
+        byte[] expected = Encoding.UTF8.GetBytes(configuredApiKey);
+        if (CryptographicOperations.FixedTimeEquals(provided, expected))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
 
 public static class EmployeeGroupEndpoints
 {

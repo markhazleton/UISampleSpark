@@ -1,3 +1,5 @@
+using UISampleSpark.UI.Middleware;
+
 namespace UISampleSpark.UI.Controllers;
 
 /// <summary>
@@ -72,6 +74,7 @@ public class MvcEmployeeController : BaseController
     /// <returns></returns>
     [HttpPost]
     [ValidateAntiForgeryToken]
+    [ServiceFilter(typeof(ApiKeyAuthorizationFilter))]
     public async Task<ActionResult> Delete(int id, EmployeeDto? employee)
     {
         if (id <= 0 || employee is null || employee.Id != id)

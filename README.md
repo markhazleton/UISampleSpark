@@ -115,6 +115,20 @@ Employees belong to Departments. Each UI pattern implements the same operations 
 Interactive API docs available at `/swagger` when running locally or deployed.
 
 ---
+## API Access Keys
+API endpoints are protected by a lightweight API key check.
+
+- Contact Mark Hazleton if you would like an API key for access.
+- Send the key using header `X-API-Key`.
+- Configuration supports multiple keys via `ApiSecurity:ApiKeys`.
+- The repository starts with 10 configured key slots (`ApiKeys[0]` through `ApiKeys[9]`).
+
+Example request:
+```pwsh
+curl -H "X-API-Key: <your-key>" https://localhost:5001/api/employee
+```
+
+---
 ## Theme Switching
 Implemented via Bootswatch services and `<bootswatch-theme-switcher />` integration.
 

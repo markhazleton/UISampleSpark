@@ -12,10 +12,10 @@ This codebase intentionally omits critical production security features to maint
 |------------------|--------|-----------|
 | Authentication | ❌ Not Implemented | Educational scope - demonstrates CRUD patterns without auth complexity |
 | Authorization | ❌ Not Implemented | No `[Authorize]` attributes or role-based access control |
-| Rate Limiting | ❌ Not Implemented | Educational scope - not designed for production load |
+| Rate Limiting | ✅ Implemented | Per-IP fixed window limit: 100 requests/minute |
 | Input Validation Middleware | ⚠️ Basic Only | Model validation present, but no WAF or advanced input filtering |
 | CORS Policies | ❌ Not Configured | Educational scope - assumes trusted clients |
-| API Key Management | ❌ Not Implemented | No API key validation or token-based auth |
+| API Key Management | ⚠️ Lightweight | Header/cookie API key validation with up to 10 configured keys |
 
 **⚠️ DO NOT deploy this application to production without implementing these features.**
 
@@ -29,6 +29,14 @@ While authentication is intentionally omitted, we maintain security best practic
 - ✅ **Dependency Scanning**: Automated security scans via CodeQL and Trivy
 - ✅ **Container Security**: Non-root user, Alpine Linux, aggressive security updates
 - ✅ **Code Analysis**: Latest .NET analyzers with security rules enabled
+- ✅ **API Key Access Guard**: API endpoints validate `X-API-Key` against configured keys
+- ✅ **Abuse Protection**: Per-IP rate limiting for API endpoints
+
+### API Key Access
+
+- API access keys are controlled by repository maintainers.
+- Contact Mark Hazleton if you would like an API key to use the API.
+- Configure multiple keys using `ApiSecurity:ApiKeys` (`ApiKeys[0]`..`ApiKeys[9]`).
 
 ### Security Scanning
 
