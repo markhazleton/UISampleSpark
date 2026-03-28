@@ -162,6 +162,15 @@ if (Test-HasGit) {
 $timestamp = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
 $releaseDate = Get-Date -Format "yyyy-MM-dd"
 
+# Spec Kit Spark version stamp info
+$specKitVersionPath = Join-Path $repoRoot ".documentation/SPECKIT_VERSION"
+$installedVersion = ""
+if (Test-Path $specKitVersionPath) {
+    try {
+        $installedVersion = (Get-Content $specKitVersionPath -TotalCount 1 -ErrorAction SilentlyContinue).Trim()
+    } catch { }
+}
+
 # Output
 if ($Json) {
     @{
@@ -185,7 +194,9 @@ if ($Json) {
         TIMESTAMP              = $timestamp
         RELEASE_DATE           = $releaseDate
         DRY_RUN                = [bool]$DryRun
-    } | ConvertTo-Json -Compress
+        SPECKIT_VERSION_PATH   = $specKitVersionPath
+        INSTALLED_VERSION      = $installedVersion
+    } | ConvertTo-Json
 }
 else {
     Write-Output "Release Context"
@@ -200,6 +211,12 @@ else {
     Write-Output "Pending Specs: $($pendingSpecs.Count)"
     Write-Output "Quickfixes: $($quickfixes.Count)"
     Write-Output "Contributors: $($contributors.Count)"
+    Write-Output ""
+    if ($installedVersion) {
+        Write-Output "Installed Spec Kit Version: $installedVersion"
+    } else {
+        Write-Output "Installed Spec Kit Version: (SPECKIT_VERSION not found)"
+    }
     if ($DryRun) {
         Write-Output ""
         Write-Output "** DRY RUN MODE - No changes will be made **"

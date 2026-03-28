@@ -1,4 +1,5 @@
 #!/usr/bin/env pwsh
+#requires -Version 7.0
 # Extract PR context for review
 #
 # This script fetches Pull Request information from GitHub and provides it
@@ -8,13 +9,20 @@
 #        ./get-pr-context.ps1 -Json           # Auto-detect PR from current branch
 #        ./get-pr-context.ps1 123 -Json       # Specific PR number
 #        ./get-pr-context.ps1 "#123" -Json    # Also accepts # prefix
+#        ./get-pr-context.ps1 123 -Json -IncludeAllFiles
 
 param(
     [Parameter(Position=0)]
     [string]$PrNumber,
     
     [Parameter()]
-    [switch]$Json
+    [switch]$Json,
+
+    [Parameter()]
+    [switch]$IncludeAllFiles,
+
+    [Parameter()]
+    [int]$FileSampleLimit = 200
 )
 
 $ErrorActionPreference = "Stop"
@@ -41,7 +49,7 @@ function Write-JsonError {
             error = $true
             message = $Message
             details = $Details
-        } | ConvertTo-Json -Compress
+        } | ConvertTo-Json
         Write-Output $errorObj
     } else {
         Write-Error $Message
@@ -49,6 +57,10 @@ function Write-JsonError {
             Write-Error $Details
         }
     }
+}
+
+if ($FileSampleLimit -lt 1) {
+    $FileSampleLimit = 200
 }
 
 #==============================================================================
@@ -148,7 +160,14 @@ try {
 }
 
 # Extract file list
-$filesChanged = $prData.files | ForEach-Object { $_.path }
+$allFilesChanged = @($prData.files | ForEach-Object { $_.path })
+$filesChangedTotal = $allFilesChanged.Count
+$filesChangedTruncated = $false
+$filesChanged = $allFilesChanged
+if (-not $IncludeAllFiles -and $filesChangedTotal -gt $FileSampleLimit) {
+    $filesChanged = @($allFilesChanged | Select-Object -First $FileSampleLimit)
+    $filesChangedTruncated = $true
+}
 
 # Check for constitution
 $constitutionPath = Join-Path $repoRoot.Path ".documentation\memory\constitution.md"
@@ -173,16 +192,20 @@ if ($Json) {
             commit_sha = $commitSha
             commit_count = $prData.commits.Count
             files_changed = $filesChanged
+            files_changed_total = $filesChangedTotal
+            files_changed_truncated = $filesChangedTruncated
             lines_added = $prData.additions ?? 0
             lines_deleted = $prData.deletions ?? 0
             created_at = $prData.createdAt
             updated_at = $prData.updatedAt
             diff_available = $diffAvailable
+            file_sample_limit = $FileSampleLimit
+            include_all_files = [bool]$IncludeAllFiles
         }
         CONSTITUTION_PATH = $constitutionPath
         CONSTITUTION_EXISTS = $constitutionExists
         REVIEW_DIR = $reviewDir
-    } | ConvertTo-Json -Depth 10 -Compress
+    } | ConvertTo-Json -Depth 10
     
     Write-Output $output
 } else {

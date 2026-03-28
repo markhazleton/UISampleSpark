@@ -33,7 +33,7 @@ This command enables rapid fixes for bug fixes, small features, and production i
 
 ## Prerequisites
 
-- Project constitution at `/.documentation.documentation/memory/constitution.md` (REQUIRED)
+- Project constitution at `/.documentation/memory/constitution.md` (REQUIRED)
 - Git repository with working branch
 
 ## Actions
@@ -139,7 +139,7 @@ Consider upgrading to a full specification:
 
 ### 4. Load Constitution (Targeted)
 
-Read `/.documentation.documentation/memory/constitution.md` and extract only principles relevant to the change type:
+Read `/.documentation/memory/constitution.md` and extract only principles relevant to the change type:
 
 | Classification | Relevant Principles |
 |---------------|---------------------|

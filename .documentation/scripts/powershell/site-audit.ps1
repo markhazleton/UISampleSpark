@@ -1,4 +1,5 @@
 #!/usr/bin/env pwsh
+#requires -Version 7.0
 <#
 .SYNOPSIS
     Gathers codebase data for site-audit as JSON for LLM context efficiency.
@@ -18,6 +19,22 @@
 .PARAMETER Json
     Alias for -OutputFormat json (for consistency with other scripts)
 
+.PARAMETER IncludeFullInventory
+    Include full file inventories and full pattern findings in JSON output.
+    By default, output is sampled for performance.
+
+.PARAMETER SampleLimit
+    Maximum files per category to include by default.
+    Default: 25
+
+.PARAMETER LargeFileLimit
+    Maximum large files to include in metrics output.
+    Default: 20
+
+.PARAMETER PatternSampleLimit
+    Maximum findings per pattern category to include by default.
+    Default: 25
+
 .EXAMPLE
     ./site-audit.ps1
     ./site-audit.ps1 --scope=constitution
@@ -32,6 +49,14 @@ param(
     [string]$OutputFormat = 'json',
     
     [switch]$Json,
+
+    [switch]$IncludeFullInventory,
+
+    [int]$SampleLimit = 25,
+
+    [int]$LargeFileLimit = 20,
+
+    [int]$PatternSampleLimit = 25,
     
     [Parameter(ValueFromRemainingArguments)]
     [string[]]$RemainingArgs
@@ -56,9 +81,30 @@ if ($RemainingArgs) {
     foreach ($arg in $RemainingArgs) {
         if ($arg -match '^--scope=(.+)$') {
             $Scope = $matches[1].ToLower()
+            continue
+        }
+        if ($arg -in @('--full-inventory', '--include-full-inventory')) {
+            $IncludeFullInventory = $true
+            continue
+        }
+        if ($arg -match '^--sample-limit=(\d+)$') {
+            $SampleLimit = [int]$matches[1]
+            continue
+        }
+        if ($arg -match '^--large-file-limit=(\d+)$') {
+            $LargeFileLimit = [int]$matches[1]
+            continue
+        }
+        if ($arg -match '^--pattern-sample-limit=(\d+)$') {
+            $PatternSampleLimit = [int]$matches[1]
         }
     }
 }
+
+# Guardrails to avoid huge pre-scan payloads on large repositories
+if ($SampleLimit -lt 1) { $SampleLimit = 25 }
+if ($LargeFileLimit -lt 1) { $LargeFileLimit = 20 }
+if ($PatternSampleLimit -lt 1) { $PatternSampleLimit = 25 }
 
 # Validate scope
 $validScopes = @('full', 'constitution', 'packages', 'quality', 'unused', 'duplicate')
@@ -86,9 +132,9 @@ function Get-FileCategories {
     $scriptExtensions = @('.sh', '.ps1', '.bash', '.bat', '.cmd')
     
     # Exclusion patterns
-    $excludeDirs = @('node_modules', 'venv', '.venv', '__pycache__', '.git', '.vs', '.idea', 
+    $excludeDirs = @('node_modules', 'venv', '.venv', '__pycache__', '.git', '.vs', '.idea',
                      'dist', 'build', 'bin', 'obj', '.next', 'coverage', '.pytest_cache',
-                     '.mypy_cache', '.tox', 'eggs', '.egg-info', '.genreleases')
+                     '.mypy_cache', '.tox', 'eggs', '.egg-info', '.genreleases', '.archive')
     
     $excludePattern = '(^|[/\\])(' + (($excludeDirs | ForEach-Object { [regex]::Escape($_) }) -join '|') + ')([/\\]|$)'
     
@@ -452,6 +498,19 @@ function Get-ConstitutionInfo {
     return $info
 }
 
+function Get-SampledItems {
+    param(
+        [array]$Items,
+        [int]$Limit
+    )
+
+    if (-not $Items) {
+        return @()
+    }
+
+    return @($Items | Select-Object -First $Limit)
+}
+
 # Main execution
 $repoRoot = Get-RepoRoot
 $constitutionInfo = Get-ConstitutionInfo -RepoRoot $repoRoot
@@ -468,12 +527,12 @@ $result = @{
 # Get file categories (always needed for context)
 $fileCategories = Get-FileCategories -RepoRoot $repoRoot
 $result.files = @{
-    source = $fileCategories.source
-    config = $fileCategories.config
-    documentation = $fileCategories.documentation
-    tests = $fileCategories.tests
-    scripts = $fileCategories.scripts
-    build = $fileCategories.build
+    source = Get-SampledItems -Items $fileCategories.source -Limit $SampleLimit
+    config = Get-SampledItems -Items $fileCategories.config -Limit $SampleLimit
+    documentation = Get-SampledItems -Items $fileCategories.documentation -Limit $SampleLimit
+    tests = Get-SampledItems -Items $fileCategories.tests -Limit $SampleLimit
+    scripts = Get-SampledItems -Items $fileCategories.scripts -Limit $SampleLimit
+    build = Get-SampledItems -Items $fileCategories.build -Limit $SampleLimit
     counts = @{
         source = $fileCategories.source.Count
         config = $fileCategories.config.Count
@@ -481,6 +540,17 @@ $result.files = @{
         tests = $fileCategories.tests.Count
         scripts = $fileCategories.scripts.Count
         build = $fileCategories.build.Count
+    }
+}
+
+if ($IncludeFullInventory) {
+    $result.files.full_inventory = @{
+        source = $fileCategories.source
+        config = $fileCategories.config
+        documentation = $fileCategories.documentation
+        tests = $fileCategories.tests
+        scripts = $fileCategories.scripts
+        build = $fileCategories.build
     }
 }
 
@@ -492,16 +562,44 @@ if ($Scope -in @('full', 'packages')) {
 # Get code metrics (if scope includes quality)
 if ($Scope -in @('full', 'quality')) {
     $result.metrics = Get-CodeMetrics -RepoRoot $repoRoot -SourceFiles $fileCategories.source
+
+    $allLargeFiles = @($result.metrics.large_files)
+    $result.metrics.large_files_total = $allLargeFiles.Count
+    if (-not $IncludeFullInventory) {
+        $result.metrics.large_files = Get-SampledItems -Items $allLargeFiles -Limit $LargeFileLimit
+    }
 }
 
 # Get pattern detection (security, quality patterns)
 if ($Scope -in @('full', 'constitution', 'quality', 'unused')) {
     $result.patterns = Get-PatternDetection -RepoRoot $repoRoot -SourceFiles $fileCategories.source -Scope $Scope
+
+    $allHardcodedSecrets = @($result.patterns.security.hardcoded_secrets)
+    $allInsecurePatterns = @($result.patterns.security.insecure_patterns)
+    $allTodoComments = @($result.patterns.quality.todo_comments)
+
+    $result.patterns.security.hardcoded_secrets_total = $allHardcodedSecrets.Count
+    $result.patterns.security.insecure_patterns_total = $allInsecurePatterns.Count
+    $result.patterns.quality.todo_comments_total = $allTodoComments.Count
+
+    if (-not $IncludeFullInventory) {
+        $result.patterns.security.hardcoded_secrets = Get-SampledItems -Items $allHardcodedSecrets -Limit $PatternSampleLimit
+        $result.patterns.security.insecure_patterns = Get-SampledItems -Items $allInsecurePatterns -Limit $PatternSampleLimit
+        $result.patterns.quality.todo_comments = Get-SampledItems -Items $allTodoComments -Limit $PatternSampleLimit
+    }
+}
+
+$result.pre_scan_limits = @{
+    include_full_inventory = [bool]$IncludeFullInventory
+    sample_limit = $SampleLimit
+    large_file_limit = $LargeFileLimit
+    pattern_sample_limit = $PatternSampleLimit
 }
 
 # Output
 if ($OutputFormat -eq 'json') {
-    $result | ConvertTo-Json -Depth 10 -Compress
+    # Use multiline JSON to avoid large single-line rendering overhead in chat UI.
+    $result | ConvertTo-Json -Depth 10
 } else {
     # Summary format
     Write-Output "Site Audit Pre-Scan Summary"

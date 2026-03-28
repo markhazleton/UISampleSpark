@@ -31,7 +31,7 @@ This command facilitates constitution evolution by:
 
 ## Prerequisites
 
-- Project constitution at `/.documentation.documentation/memory/constitution.md` (REQUIRED)
+- Project constitution at `/.documentation/memory/constitution.md` (REQUIRED)
 - PR review history in `/.documentation/specs/pr-review/` (recommended)
 - Site audit history in `/.documentation/copilot/audit/` (optional)
 
@@ -88,7 +88,7 @@ If ACTION is "approve" and CAP_ID is provided:
 1. Read proposal from `PROPOSALS_DIR/CAP_ID.md`
 2. If file doesn't exist: ERROR "Proposal {CAP_ID} not found"
 3. Update proposal status to "APPROVED"
-4. Update `/.documentation.documentation/memory/constitution-history.md`:
+4. Update `/.documentation/memory/constitution-history.md`:
    - Add entry to Amendment Log
    - Record approval date
 5. Output:
@@ -124,7 +124,7 @@ Proposal Rejected: {CAP_ID}
 Reason: {rejection reason}
 
 The proposal has been archived in:
-/.documentation.documentation/memory/proposals/rejected/{CAP_ID}.md
+/.documentation/memory/proposals/rejected/{CAP_ID}.md
 ```
 
 1. Stop execution
@@ -236,7 +236,7 @@ Stop execution if no proposals warranted.
 
 For each identified evolution need, create proposal at `PROPOSALS_DIR/NEXT_CAP_ID.md`:
 
-Ensure directory exists: Create `/.documentation.documentation/memory/proposals/` if missing.
+Ensure directory exists: Create `/.documentation/memory/proposals/` if missing.
 
 ```markdown
 # Constitution Amendment Proposal: {NEXT_CAP_ID}
@@ -358,7 +358,7 @@ Select one:
 
 ### 6. Update History File
 
-Create or update `/.documentation.documentation/memory/constitution-history.md`:
+Create or update `/.documentation/memory/constitution-history.md`:
 
 ```markdown
 # Constitution Change History
@@ -427,7 +427,7 @@ Create or update `/.documentation.documentation/memory/constitution-history.md`:
 ### Next Steps
 
 1. **Review Proposals**:
-   `/.documentation.documentation/memory/proposals/{NEXT_CAP_ID}.md`
+   `/.documentation/memory/proposals/{NEXT_CAP_ID}.md`
 
 2. **Gather Team Feedback**:
    Share proposals with team for discussion

@@ -51,7 +51,7 @@ if ($Json) {
         BRANCH = $paths.CURRENT_BRANCH
         HAS_GIT = $paths.HAS_GIT
     }
-    $result | ConvertTo-Json -Compress
+    $result | ConvertTo-Json
 } else {
     Write-Output "FEATURE_SPEC: $($paths.FEATURE_SPEC)"
     Write-Output "IMPL_PLAN: $($paths.IMPL_PLAN)"

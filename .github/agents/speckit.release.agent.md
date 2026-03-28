@@ -67,6 +67,8 @@ Run `.documentation/scripts/powershell/release-context.ps1 $ARGUMENTS -Json` to 
 - `COMMITS_SINCE_RELEASE`: Commit count since last release
 - `CONTRIBUTORS`: List of contributors
 - `DRY_RUN`: Whether this is a preview run
+- `SPECKIT_VERSION_PATH`: Path to `.documentation/SPECKIT_VERSION`
+- `INSTALLED_VERSION`: Version recorded in the stamp file (blank if absent)
 
 ### 2. Version Confirmation
 
@@ -88,9 +90,9 @@ Confirm this version or provide explicit version:
 
 | Content | Bump Type | Example |
 |---------|-----------|---------|
-| Completed feature specs | Minor | 1.2.0 → 1.3.0 |
-| Quickfixes only | Patch | 1.2.0 → 1.2.1 |
-| Breaking changes in specs | Major | 1.2.0 → 2.0.0 |
+| Completed feature specs | Minor | 1.2.4 → 1.3.0 |
+| Quickfixes only | Patch | 1.2.4 → 1.2.5 |
+| Breaking changes in specs | Major | 1.2.4 → 2.0.0 |
 
 ### 3. Classify Artifacts
 
@@ -331,7 +333,47 @@ Create `/.documentation/releases/v{NEXT_VERSION}/metrics.json`:
 }
 ```
 
-### 9. Clean Slate Preparation
+### 9. Bump Version in Source Files
+
+After generating the CHANGELOG entry and release archive, and **before** committing,
+update the canonical version number so the next `specify upgrade` stamps the new
+version into consumer projects.
+
+**Skip if DRY_RUN.**
+
+#### A. Bump `pyproject.toml` (Spec Kit Spark source repo)
+
+Edit `pyproject.toml` at the repository root:
+
+```toml
+[project]
+version = "{NEXT_VERSION}"   # was {CURRENT_VERSION}
+```
+
+Make this edit now if {NEXT_VERSION} differs from {CURRENT_VERSION}.
+
+#### B. Confirm `.documentation/SPECKIT_VERSION` (consumer repos)
+
+`.documentation/SPECKIT_VERSION` is **written automatically** by `specify init` and
+`specify upgrade` from the CLI version. Maintainers do not need to update it manually
+in the source repo — it is a per-consumer-project stamp.
+
+After bumping `pyproject.toml` and publishing the new release, consumer projects
+will receive the correct version stamp the next time they run `specify upgrade`.
+
+#### C. Verify version consistency
+
+Confirm these three sources agree on {NEXT_VERSION}:
+
+| Source | Expected Value |
+|--------|----------------|
+| `pyproject.toml` → `version` | {NEXT_VERSION} |
+| `CHANGELOG.md` top entry | `## [{NEXT_VERSION}]` |
+| Git tag (to be created) | `v{NEXT_VERSION}` |
+
+If any are out of sync, fix before tagging.
+
+### 10. Clean Slate Preparation
 
 After archival (skip if DRY_RUN):
 
@@ -354,7 +396,7 @@ For each quickfix in QUICKFIXES:
 1. Create `/.documentation/specs/.gitkeep` if directory is empty
 2. Create `/.documentation/quickfixes/.gitkeep` if directory is empty
 
-### 10. Output Summary
+### 11. Output Summary
 
 #### Dry Run Output
 
@@ -418,11 +460,13 @@ To execute this release:
 
 ### Next Steps
 
-1. Review generated documentation:
+1. Confirm `pyproject.toml` has been bumped to `{NEXT_VERSION}` (Step 9A above).
+
+2. Review generated documentation:
    - `/.documentation/releases/v{NEXT_VERSION}/release-notes.md`
    - `CHANGELOG.md`
 
-1. Commit changes:
+3. Commit changes:
 
    ```bash
    git add -A
@@ -435,16 +479,22 @@ To execute this release:
    git tag -a v{NEXT_VERSION} -m "Release v{NEXT_VERSION}"
    ```
 
-1. Push to remote:
+2. Push to remote:
 
    ```bash
    git push origin main --tags
    ```
 
-1. Create GitHub Release (optional):
+3. Create GitHub Release (optional):
 
    ```bash
    gh release create v{NEXT_VERSION} --notes-file .documentation/releases/v{NEXT_VERSION}/release-notes.md
+   ```
+
+4. Consumer projects will receive the new version stamp the next time they run:
+
+   ```bash
+   specify upgrade
    ```
 
 ## Guidelines

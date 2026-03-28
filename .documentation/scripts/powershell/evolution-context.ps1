@@ -145,7 +145,7 @@ if ($Json) {
         FROM_AUDIT               = $fromAudit
         SUGGESTION               = $suggestion
         TIMESTAMP                = $timestamp
-    } | ConvertTo-Json -Compress
+    } | ConvertTo-Json
 }
 else {
     Write-Output "Constitution Evolution Context"

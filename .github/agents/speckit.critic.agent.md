@@ -34,7 +34,7 @@ Act as a skeptical technical expert identifying risks, architectural flaws, impl
 
 **Critical Mindset**: Assume the team has **limited experience** with the proposed stack, **optimistic estimates**, and **incomplete understanding** of edge cases. Your job is to identify where the plan will fail in production.
 
-**Constitution Authority**: The project constitution (`/.documentation.documentation/memory/constitution.md`) is **non-negotiable**. Constitution violations are automatically SHOWSTOPPER severity.
+**Constitution Authority**: The project constitution (`/.documentation/memory/constitution.md`) is **non-negotiable**. Constitution violations are automatically SHOWSTOPPER severity.
 
 ## Execution Steps
 
@@ -45,7 +45,7 @@ Run `.documentation/scripts/powershell/check-prerequisites.ps1 -Json -RequireTas
 - SPEC = FEATURE_DIR/spec.md
 - PLAN = FEATURE_DIR/plan.md
 - TASKS = FEATURE_DIR/tasks.md
-- CONSTITUTION = /.documentation.documentation/memory/constitution.md
+- CONSTITUTION = /.documentation/memory/constitution.md
 
 Abort with an error message if any required file is missing (instruct the user to run the appropriate prerequisite command).
 

@@ -22,7 +22,7 @@ This command reviews GitHub Pull Requests against the project constitution. It w
 
 ## Prerequisites
 
-- Project constitution at `/.documentation.documentation/memory/constitution.md` (REQUIRED)
+- Project constitution at `/.documentation/memory/constitution.md` (REQUIRED)
 - GitHub repository with PR context
 - GitHub CLI (`gh`) installed and authenticated (required)
 
@@ -35,6 +35,20 @@ Run `.documentation/scripts/powershell/get-pr-context.ps1 $ARGUMENTS -Json` to e
 - `PR_CONTEXT`: PR metadata (number, title, branches, commit SHA, files, diff)
 - `CONSTITUTION_PATH`: Path to constitution file
 - `REVIEW_DIR`: Directory where review will be saved
+
+Treat script JSON as bounded context:
+
+- `files_changed` may be sampled for large PRs.
+- Use `files_changed_total` and `files_changed_truncated` to decide whether to zoom in further.
+- Do not expand to all files unless user explicitly requests a full exhaustive review.
+
+Execution limits (required):
+
+- Max findings in report: 7 highest-signal items
+- Max files to inspect deeply: 25
+- Max follow-up searches/reads beyond provided context: 8
+- Stop once evidence is sufficient for high-confidence conclusions
+- If confidence is low for a specific area, ask one clarifying question
 
 **PR Number Detection**:
 The script will try to determine PR number in this order:
@@ -56,7 +70,7 @@ For single quotes in args like "I'm reviewing", use escape syntax: e.g 'I'\''m r
 
 ### 2. Load Constitution
 
-Read and parse `/.documentation.documentation/memory/constitution.md`:
+Read and parse `/.documentation/memory/constitution.md`:
 
 - Extract all core principles with their names
 - Identify MUST requirements (non-negotiable/mandatory)
@@ -82,6 +96,11 @@ For each file in `files_changed`:
 - Identify the type of change (new file, modified, deleted)
 - Note the scope of changes (lines added/removed)
 - Extract code snippets for analysis
+
+Prioritization policy:
+
+- If `files_changed_truncated` is true, prioritize risky files first (auth, security, configuration, dependency manifests, migration scripts, CI/CD) before expanding scope.
+- Expand beyond sampled files only if necessary to validate a top-severity finding.
 
 #### B. Examine PR Diff
 

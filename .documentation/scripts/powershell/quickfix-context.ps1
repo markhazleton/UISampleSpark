@@ -121,7 +121,7 @@ if ($Json) {
         RISK_LEVEL          = $riskLevel
         MAX_EFFORT          = $maxEffort
         QUICKFIXES          = $quickfixes
-    } | ConvertTo-Json -Compress
+    } | ConvertTo-Json
 }
 else {
     Write-Output "Quickfix Context"
