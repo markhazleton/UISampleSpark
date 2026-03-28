@@ -4,12 +4,38 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using WebSpark.Bootswatch;
 using WebSpark.HttpClientUtility.RequestResult;
 using Westwind.AspNetCore.Markdown;
+using System.Threading.RateLimiting;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+// Lightweight abuse protection: limit each client IP to 100 requests/minute.
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.OnRejected = async (context, token) =>
+    {
+        context.HttpContext.Response.Headers.RetryAfter = "60";
+        await context.HttpContext.Response.WriteAsync("Too many requests. Please try again later.", token).ConfigureAwait(false);
+    };
+
+    options.AddPolicy("PerIpLimit", httpContext =>
+    {
+        string key = httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown";
+        return RateLimitPartition.GetFixedWindowLimiter(
+            partitionKey: key,
+            factory: _ => new FixedWindowRateLimiterOptions
+            {
+                PermitLimit = 100,
+                Window = TimeSpan.FromMinutes(1),
+                QueueLimit = 0,
+                AutoReplenishment = true
+            });
+    });
+});
 
 // Configure Swagger/OpenAPI
 builder.Services.AddSwaggerGen(options =>
@@ -103,6 +129,7 @@ app.UseStaticFiles();
 app.UseBootswatchAll();
 
 app.UseRouting();
+app.UseRateLimiter();
 app.UseAuthorization();
 app.UseSession();
 
@@ -110,7 +137,7 @@ app.UseSession();
 app.MapHealthChecks("/health");
 
 // Map controllers and pages
-app.MapControllers();
+app.MapControllers().RequireRateLimiting("PerIpLimit");
 app.MapRazorPages();
 app.MapBlazorHub();
 
