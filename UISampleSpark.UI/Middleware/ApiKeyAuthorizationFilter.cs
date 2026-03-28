@@ -80,16 +80,8 @@ public sealed class ApiKeyAuthorizationFilter : IAsyncActionFilter
         }
 
         byte[] provided = Encoding.UTF8.GetBytes(providedApiKey);
-
-        foreach (string configuredApiKey in configuredApiKeys)
-        {
-            byte[] expected = Encoding.UTF8.GetBytes(configuredApiKey);
-            if (CryptographicOperations.FixedTimeEquals(provided, expected))
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return configuredApiKeys
+            .Select(Encoding.UTF8.GetBytes)
+            .Any(expected => CryptographicOperations.FixedTimeEquals(provided, expected));
     }
 }

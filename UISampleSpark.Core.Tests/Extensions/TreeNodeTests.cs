@@ -42,9 +42,9 @@ public class TreeNodeTests
         // Arrange
         TreeNode<string> rootNode = new TreeNode<string>("A");
         TreeNode<string> child1 = rootNode.AddChild("B");
-        TreeNode<string> child2 = rootNode.AddChild("C");
-        TreeNode<string> child3 = child1.AddChild("D");
-        TreeNode<string> child4 = child1.AddChild("E");
+        rootNode.AddChild("C");
+        child1.AddChild("D");
+        child1.AddChild("E");
 
         // Act
         List<(int Depth, string Value)> result = rootNode.EnumerateSelfAndDescendantsWithDepth().ToList();

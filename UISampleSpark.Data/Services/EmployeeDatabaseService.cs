@@ -188,8 +188,6 @@ public class EmployeeDatabaseService : IEmployeeService
             .Include(i => i.Department)
             .OrderBy(o => o.Name)
             .AsNoTracking();
-
-        int totalCount = await source.CountAsync(token).ConfigureAwait(false);
         
         List<Employee> items = await source
             .Skip((paging.PageNumber - 1) * paging.PageSize)

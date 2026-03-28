@@ -1,7 +1,5 @@
 @inject StyleCache StyleCache
 @{
-    var currentYear = DateTime.Now.Year.ToString();
-    var status = new ApplicationStatus(Assembly.GetExecutingAssembly());
     var themeName = BootswatchThemeHelper.GetCurrentThemeName(Context);
     var themeUrl = BootswatchThemeHelper.GetThemeUrl(StyleCache, themeName);
 }

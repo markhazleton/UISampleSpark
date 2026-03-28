@@ -57,13 +57,9 @@ public class EmployeeHtmxController : BaseController
         var filteredEmployees = allEmployees;
         if (!string.IsNullOrWhiteSpace(search))
         {
-            filteredEmployees = allEmployees.Where(e =>
-                (e.Name?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (e.GenderName?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (e.State?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (e.Country?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false) ||
-                (e.DepartmentName?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
-            ).ToList();
+            filteredEmployees = allEmployees
+                .Where(e => MatchesSearch(e, search))
+                .ToList();
         }
 
         var totalItems = filteredEmployees.Count();
@@ -152,5 +148,14 @@ public class EmployeeHtmxController : BaseController
         await _client.DeleteAsync(id, cts.Token).ConfigureAwait(false);
         Response.Headers["HX-Trigger"] = "refreshTable";
         return Content("");
+    }
+
+    private static bool MatchesSearch(EmployeeDto employee, string search)
+    {
+        return (employee.Name?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+            || (employee.GenderName?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+            || (employee.State?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+            || (employee.Country?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false)
+            || (employee.DepartmentName?.Contains(search, StringComparison.OrdinalIgnoreCase) ?? false);
     }
 }

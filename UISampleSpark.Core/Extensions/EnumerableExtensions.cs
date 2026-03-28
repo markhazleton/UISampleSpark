@@ -42,28 +42,20 @@ public static class EnumerableExtensions
                 return sequence.LastOrDefault();
 
             case MinMaxOption.Mean:
-                double sum = 0;
-                int count = 0;
+                var candidates = sequence
+                    .Select(element => (Element: element, Key: keySelector(element)))
+                    .Where(static item => item.Key is IConvertible)
+                    .Select(static item => (item.Element, NumericKey: Convert.ToDouble((IConvertible)item.Key)))
+                    .ToList();
 
-                foreach (T element in sequence)
-                {
-                    TKey key = keySelector(element);
-                    if (key is IConvertible convertible)
-                    {
-                        sum += Convert.ToDouble(convertible);
-                        count++;
-                    }
-                }
+                if (candidates.Count == 0)
+                    return default;
 
-                if (count > 0)
-                {
-                    double mean = sum / count;
-                    return sequence
-                        .OrderBy(element => Math.Abs(Convert.ToDouble(keySelector(element)) - mean))
-                        .FirstOrDefault();
-                }
-
-                return default;
+                double mean = candidates.Average(static item => item.NumericKey);
+                return candidates
+                    .OrderBy(item => Math.Abs(item.NumericKey - mean))
+                    .Select(static item => item.Element)
+                    .FirstOrDefault();
 
             default:
                 return default;

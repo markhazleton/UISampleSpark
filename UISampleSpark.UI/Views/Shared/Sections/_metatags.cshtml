@@ -1,6 +1,5 @@
 @using System.IO
 @using System.Text.Json
-@using System.Text.RegularExpressions
 @using UISampleSpark.UI.Helpers
 @inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment Environment
 @{
@@ -16,19 +15,10 @@
     var baseUrl = $"{scheme}://{host}";
 
     // Safely retrieve route data values and handle potential nulls
-    var areaName = ViewContext.RouteData.Values["area"]?.ToString() ?? string.Empty;
     var controllerName = ViewContext.RouteData.Values["controller"]?.ToString() ?? string.Empty;
     var actionName = ViewContext.RouteData.Values["action"]?.ToString() ?? string.Empty;
-    var idName = ViewContext.RouteData.Values["id"]?.ToString() ?? string.Empty;
     actionName = actionName == "Index" ? string.Empty : actionName;
     controllerName = controllerName == "Home" ? string.Empty : controllerName;
-    
-    // Construct the current path based on area, controller, and action
-    var currentPath = !string.IsNullOrEmpty(areaName)
-    ? $"/{areaName}/{controllerName}/{actionName}/{idName}"
-    : $"/{controllerName}/{actionName}/{idName}";
-
-    currentPath = Regex.Replace(currentPath, "/+", "/");
 
     // Enhanced meta descriptions based on context
     var enhancedDescription = GenerateEnhancedDescription(controllerName, actionName, ViewData);
@@ -53,7 +43,7 @@
         // Check if we have a custom description first
         if (viewData.TryGetValue("Description", out var descValue) && !string.IsNullOrEmpty(descValue?.ToString()))
         {
-            return descValue?.ToString() ?? string.Empty;
+            return descValue.ToString()!;
         }
 
         // Generate contextual descriptions

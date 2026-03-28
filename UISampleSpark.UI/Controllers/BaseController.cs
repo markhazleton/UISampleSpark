@@ -48,8 +48,8 @@ public abstract class BaseController : Controller
             throw new ArgumentException("Invalid EmployeeId", nameof(EmployeeId));
         }
 
-        string imagesRoot = Path.GetFullPath(Path.Combine(webHostEnvironment.WebRootPath, "images"));
-        string folderPath = Path.GetFullPath(Path.Combine(imagesRoot, sanitizedEmployeeId));
+        string imagesRoot = Path.GetFullPath(Path.Join(webHostEnvironment.WebRootPath, "images"));
+        string folderPath = Path.GetFullPath(Path.Join(imagesRoot, sanitizedEmployeeId));
         if (!folderPath.StartsWith(imagesRoot, StringComparison.OrdinalIgnoreCase))
         {
             throw new ArgumentException("Invalid EmployeeId", nameof(EmployeeId));

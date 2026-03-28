@@ -15,7 +15,7 @@ public class ApplicationStatusTests
 
 
         string executingDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        string dllFilePath = Path.Combine(executingDirectory, "Newtonsoft.Json.dll");
+        string dllFilePath = Path.Join(executingDirectory, "Newtonsoft.Json.dll");
 
         if (File.Exists(dllFilePath))
         {

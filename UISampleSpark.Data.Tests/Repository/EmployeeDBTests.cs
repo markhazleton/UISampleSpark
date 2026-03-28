@@ -155,8 +155,7 @@ public class EmployeeDBTests : IDisposable
             EmployeeDepartmentEnum.IT);
 
         // Act
-
-        // Get Current count of employees
+        // Get current count of employees for post-delete comparison
         System.Collections.Generic.List<EmployeeDto> initResult = await employeeDB.EmployeeCollectionAsync();
 
         // Add New Employee with Update
