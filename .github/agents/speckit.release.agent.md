@@ -373,6 +373,12 @@ Confirm these three sources agree on {NEXT_VERSION}:
 
 If any are out of sync, fix before tagging.
 
+#### D. Manual workflow dispatch version (recommended)
+
+When running **Create Release** via `workflow_dispatch`, set `release_version` to
+`{NEXT_VERSION}` (or `v{NEXT_VERSION}`) so the workflow publishes the intended tag
+instead of auto-incrementing from the latest existing tag.
+
 ### 10. Clean Slate Preparation
 
 After archival (skip if DRY_RUN):
