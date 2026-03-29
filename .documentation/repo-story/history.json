@@ -1,0 +1,1408 @@
+﻿{
+    "generated_at":  "2026-03-29T01:30:12.8610689+00:00",
+    "audit_parameters":  {
+                             "months":  120,
+                             "scope":  "full",
+                             "compare_baseline":  "2016-03",
+                             "since_date":  "2016-03-28",
+                             "start_month":  "2016-03",
+                             "end_month":  "2026-03"
+                         },
+    "repo":  {
+                 "name":  "UISampleSpark",
+                 "root":  "C:/GitHub/MarkHazleton/UISampleSpark",
+                 "remote_origin":  "https://github.com/markhazleton/UISampleSpark",
+                 "default_branch":  "main"
+             },
+    "summary":  {
+                    "total_commits":  703,
+                    "total_commits_in_window":  703,
+                    "total_contributors":  8,
+                    "total_tags":  1,
+                    "history_span_days":  2529
+                },
+    "timeline":  {
+                     "first_commit":  {
+                                          "sha":  "96a92b86a8c13edbeab4d17fe54d2d40a306c5b6",
+                                          "date":  "2019-04-25T13:40:01-05:00",
+                                          "role":  "Developer B",
+                                          "subject":  "Add .gitignore and .gitattributes."
+                                      },
+                     "latest_commit":  {
+                                           "sha":  "63f7a1f3edc2cc8a93c6943313d8aeca38bf802f",
+                                           "date":  "2026-03-28T20:28:57-05:00",
+                                           "role":  "Developer C",
+                                           "subject":  "feat: Update SPECKIT_VERSION to 1.5.1, add repo story agent and context scripts"
+                                       },
+                     "commits_by_year":  {
+                                             "2025":  37,
+                                             "2022":  118,
+                                             "2024":  57,
+                                             "2020":  103,
+                                             "2019":  65,
+                                             "2021":  143,
+                                             "2026":  85,
+                                             "2023":  95
+                                         },
+                     "commits_by_month":  {
+                                              "2026-01":  21,
+                                              "2022-09":  17,
+                                              "2026-03":  33,
+                                              "2022-01":  2,
+                                              "2021-07":  12,
+                                              "2019-05":  9,
+                                              "2022-03":  12,
+                                              "2019-07":  7,
+                                              "2022-12":  3,
+                                              "2024-03":  9,
+                                              "2025-12":  2,
+                                              "2023-02":  10,
+                                              "2024-01":  2,
+                                              "2024-09":  17,
+                                              "2020-04":  54,
+                                              "2024-04":  3,
+                                              "2024-06":  1,
+                                              "2021-08":  1,
+                                              "2022-05":  15,
+                                              "2021-11":  33,
+                                              "2025-11":  19,
+                                              "2023-08":  1,
+                                              "2022-07":  4,
+                                              "2023-11":  3,
+                                              "2021-10":  11,
+                                              "2023-06":  2,
+                                              "2019-11":  20,
+                                              "2024-12":  2,
+                                              "2023-10":  20,
+                                              "2022-02":  9,
+                                              "2019-06":  3,
+                                              "2020-10":  10,
+                                              "2019-04":  14,
+                                              "2025-05":  4,
+                                              "2025-07":  7,
+                                              "2023-03":  7,
+                                              "2021-04":  15,
+                                              "2026-02":  31,
+                                              "2023-04":  5,
+                                              "2022-08":  19,
+                                              "2021-01":  12,
+                                              "2020-01":  8,
+                                              "2022-10":  12,
+                                              "2023-09":  3,
+                                              "2024-05":  13,
+                                              "2023-01":  21,
+                                              "2024-02":  2,
+                                              "2021-06":  14,
+                                              "2024-08":  6,
+                                              "2020-07":  13,
+                                              "2025-01":  1,
+                                              "2023-07":  16,
+                                              "2022-06":  4,
+                                              "2025-09":  1,
+                                              "2019-12":  11,
+                                              "2023-12":  1,
+                                              "2021-03":  17,
+                                              "2020-03":  12,
+                                              "2020-08":  1,
+                                              "2024-07":  1,
+                                              "2021-05":  26,
+                                              "2024-11":  1,
+                                              "2022-04":  8,
+                                              "2022-11":  13,
+                                              "2019-10":  1,
+                                              "2020-05":  5,
+                                              "2021-12":  2,
+                                              "2023-05":  6,
+                                              "2025-04":  3
+                                          }
+                 },
+    "contributors":  {
+                         "top":  [
+                                     {
+                                         "role":  "Lead Architect",
+                                         "commits":  255
+                                     },
+                                     {
+                                         "role":  "Developer A",
+                                         "commits":  231
+                                     },
+                                     {
+                                         "role":  "Developer B",
+                                         "commits":  82
+                                     },
+                                     {
+                                         "role":  "Developer C",
+                                         "commits":  66
+                                     },
+                                     {
+                                         "role":  "Developer D",
+                                         "commits":  30
+                                     },
+                                     {
+                                         "role":  "Developer E",
+                                         "commits":  19
+                                     },
+                                     {
+                                         "role":  "Developer F",
+                                         "commits":  15
+                                     },
+                                     {
+                                         "role":  "Developer G",
+                                         "commits":  5
+                                     }
+                                 ],
+                         "all_count":  8,
+                         "monthly_by_role":  {
+                                                 "2026-01":  {
+                                                                 "Lead Architect":  11,
+                                                                 "Developer D":  3,
+                                                                 "Developer C":  7
+                                                             },
+                                                 "2022-09":  {
+                                                                 "Lead Architect":  13,
+                                                                 "Developer A":  4
+                                                             },
+                                                 "2026-03":  {
+                                                                 "Developer G":  5,
+                                                                 "Developer D":  8,
+                                                                 "Developer C":  20
+                                                             },
+                                                 "2022-01":  {
+                                                                 "Developer A":  2
+                                                             },
+                                                 "2021-07":  {
+                                                                 "Developer A":  10,
+                                                                 "Developer F":  2
+                                                             },
+                                                 "2019-05":  {
+                                                                 "Developer B":  1,
+                                                                 "Developer A":  8
+                                                             },
+                                                 "2022-03":  {
+                                                                 "Developer A":  11,
+                                                                 "Developer F":  1
+                                                             },
+                                                 "2019-07":  {
+                                                                 "Developer B":  4,
+                                                                 "Developer A":  3
+                                                             },
+                                                 "2022-12":  {
+                                                                 "Lead Architect":  3
+                                                             },
+                                                 "2024-03":  {
+                                                                 "Lead Architect":  8,
+                                                                 "Developer A":  1
+                                                             },
+                                                 "2025-12":  {
+                                                                 "Developer D":  2
+                                                             },
+                                                 "2023-02":  {
+                                                                 "Lead Architect":  8,
+                                                                 "Developer A":  2
+                                                             },
+                                                 "2024-01":  {
+                                                                 "Lead Architect":  2
+                                                             },
+                                                 "2024-09":  {
+                                                                 "Lead Architect":  10,
+                                                                 "Developer D":  1,
+                                                                 "Developer A":  6
+                                                             },
+                                                 "2020-04":  {
+                                                                 "Developer B":  31,
+                                                                 "Developer E":  7,
+                                                                 "Developer A":  16
+                                                             },
+                                                 "2024-04":  {
+                                                                 "Developer D":  3
+                                                             },
+                                                 "2024-06":  {
+                                                                 "Lead Architect":  1
+                                                             },
+                                                 "2021-08":  {
+                                                                 "Developer A":  1
+                                                             },
+                                                 "2022-05":  {
+                                                                 "Lead Architect":  5,
+                                                                 "Developer A":  5,
+                                                                 "Developer F":  5
+                                                             },
+                                                 "2021-11":  {
+                                                                 "Lead Architect":  8,
+                                                                 "Developer A":  22,
+                                                                 "Developer F":  3
+                                                             },
+                                                 "2025-11":  {
+                                                                 "Developer D":  6,
+                                                                 "Developer C":  13
+                                                             },
+                                                 "2023-08":  {
+                                                                 "Lead Architect":  1
+                                                             },
+                                                 "2022-07":  {
+                                                                 "Lead Architect":  4
+                                                             },
+                                                 "2023-11":  {
+                                                                 "Lead Architect":  3
+                                                             },
+                                                 "2021-10":  {
+                                                                 "Developer A":  11
+                                                             },
+                                                 "2023-06":  {
+                                                                 "Lead Architect":  2
+                                                             },
+                                                 "2019-11":  {
+                                                                 "Developer B":  17,
+                                                                 "Developer A":  3
+                                                             },
+                                                 "2024-12":  {
+                                                                 "Lead Architect":  2
+                                                             },
+                                                 "2023-10":  {
+                                                                 "Lead Architect":  15,
+                                                                 "Developer A":  5
+                                                             },
+                                                 "2022-02":  {
+                                                                 "Lead Architect":  5,
+                                                                 "Developer A":  4
+                                                             },
+                                                 "2019-06":  {
+                                                                 "Developer B":  1,
+                                                                 "Developer A":  2
+                                                             },
+                                                 "2020-10":  {
+                                                                 "Lead Architect":  7,
+                                                                 "Developer A":  3
+                                                             },
+                                                 "2019-04":  {
+                                                                 "Developer B":  2,
+                                                                 "Developer A":  12
+                                                             },
+                                                 "2025-05":  {
+                                                                 "Lead Architect":  4
+                                                             },
+                                                 "2025-07":  {
+                                                                 "Lead Architect":  7
+                                                             },
+                                                 "2023-03":  {
+                                                                 "Lead Architect":  5,
+                                                                 "Developer A":  2
+                                                             },
+                                                 "2021-04":  {
+                                                                 "Lead Architect":  10,
+                                                                 "Developer A":  5
+                                                             },
+                                                 "2026-02":  {
+                                                                 "Developer D":  5,
+                                                                 "Developer C":  26
+                                                             },
+                                                 "2023-04":  {
+                                                                 "Lead Architect":  2,
+                                                                 "Developer A":  3
+                                                             },
+                                                 "2022-08":  {
+                                                                 "Lead Architect":  17,
+                                                                 "Developer A":  2
+                                                             },
+                                                 "2021-01":  {
+                                                                 "Lead Architect":  10,
+                                                                 "Developer D":  1,
+                                                                 "Developer A":  1
+                                                             },
+                                                 "2020-01":  {
+                                                                 "Developer B":  7,
+                                                                 "Developer A":  1
+                                                             },
+                                                 "2022-10":  {
+                                                                 "Lead Architect":  6,
+                                                                 "Developer A":  4,
+                                                                 "Developer F":  2
+                                                             },
+                                                 "2023-09":  {
+                                                                 "Lead Architect":  3
+                                                             },
+                                                 "2024-05":  {
+                                                                 "Lead Architect":  9,
+                                                                 "Developer A":  4
+                                                             },
+                                                 "2023-01":  {
+                                                                 "Lead Architect":  11,
+                                                                 "Developer A":  8,
+                                                                 "Developer F":  2
+                                                             },
+                                                 "2024-02":  {
+                                                                 "Lead Architect":  2
+                                                             },
+                                                 "2021-06":  {
+                                                                 "Developer A":  14
+                                                             },
+                                                 "2024-08":  {
+                                                                 "Lead Architect":  4,
+                                                                 "Developer A":  2
+                                                             },
+                                                 "2020-07":  {
+                                                                 "Developer E":  6,
+                                                                 "Developer A":  7
+                                                             },
+                                                 "2025-01":  {
+                                                                 "Lead Architect":  1
+                                                             },
+                                                 "2023-07":  {
+                                                                 "Lead Architect":  16
+                                                             },
+                                                 "2022-06":  {
+                                                                 "Lead Architect":  4
+                                                             },
+                                                 "2025-09":  {
+                                                                 "Lead Architect":  1
+                                                             },
+                                                 "2019-12":  {
+                                                                 "Developer B":  7,
+                                                                 "Developer A":  4
+                                                             },
+                                                 "2023-12":  {
+                                                                 "Lead Architect":  1
+                                                             },
+                                                 "2021-03":  {
+                                                                 "Lead Architect":  14,
+                                                                 "Developer A":  3
+                                                             },
+                                                 "2020-03":  {
+                                                                 "Developer B":  12
+                                                             },
+                                                 "2020-08":  {
+                                                                 "Developer E":  1
+                                                             },
+                                                 "2024-07":  {
+                                                                 "Lead Architect":  1
+                                                             },
+                                                 "2021-05":  {
+                                                                 "Developer A":  26
+                                                             },
+                                                 "2024-11":  {
+                                                                 "Lead Architect":  1
+                                                             },
+                                                 "2022-04":  {
+                                                                 "Developer A":  8
+                                                             },
+                                                 "2022-11":  {
+                                                                 "Lead Architect":  9,
+                                                                 "Developer A":  4
+                                                             },
+                                                 "2019-10":  {
+                                                                 "Developer D":  1
+                                                             },
+                                                 "2020-05":  {
+                                                                 "Developer E":  5
+                                                             },
+                                                 "2021-12":  {
+                                                                 "Lead Architect":  1,
+                                                                 "Developer A":  1
+                                                             },
+                                                 "2023-05":  {
+                                                                 "Lead Architect":  5,
+                                                                 "Developer A":  1
+                                                             },
+                                                 "2025-04":  {
+                                                                 "Lead Architect":  3
+                                                             }
+                                             }
+                     },
+    "contributor_census":  {
+                               "role_assignments":  [
+                                                        {
+                                                            "role":  "Lead Architect",
+                                                            "commits":  255
+                                                        },
+                                                        {
+                                                            "role":  "Developer A",
+                                                            "commits":  231
+                                                        },
+                                                        {
+                                                            "role":  "Developer B",
+                                                            "commits":  82
+                                                        },
+                                                        {
+                                                            "role":  "Developer C",
+                                                            "commits":  66
+                                                        },
+                                                        {
+                                                            "role":  "Developer D",
+                                                            "commits":  30
+                                                        },
+                                                        {
+                                                            "role":  "Developer E",
+                                                            "commits":  19
+                                                        },
+                                                        {
+                                                            "role":  "Developer F",
+                                                            "commits":  15
+                                                        },
+                                                        {
+                                                            "role":  "Developer G",
+                                                            "commits":  5
+                                                        }
+                                                    ]
+                           },
+    "volume_metrics":  {
+                           "total_commits":  703,
+                           "monthly_commit_distribution":  {
+                                                               "2026-01":  21,
+                                                               "2022-09":  17,
+                                                               "2026-03":  33,
+                                                               "2022-01":  2,
+                                                               "2021-07":  12,
+                                                               "2019-05":  9,
+                                                               "2022-03":  12,
+                                                               "2019-07":  7,
+                                                               "2022-12":  3,
+                                                               "2024-03":  9,
+                                                               "2025-12":  2,
+                                                               "2023-02":  10,
+                                                               "2024-01":  2,
+                                                               "2024-09":  17,
+                                                               "2020-04":  54,
+                                                               "2024-04":  3,
+                                                               "2024-06":  1,
+                                                               "2021-08":  1,
+                                                               "2022-05":  15,
+                                                               "2021-11":  33,
+                                                               "2025-11":  19,
+                                                               "2023-08":  1,
+                                                               "2022-07":  4,
+                                                               "2023-11":  3,
+                                                               "2021-10":  11,
+                                                               "2023-06":  2,
+                                                               "2019-11":  20,
+                                                               "2024-12":  2,
+                                                               "2023-10":  20,
+                                                               "2022-02":  9,
+                                                               "2019-06":  3,
+                                                               "2020-10":  10,
+                                                               "2019-04":  14,
+                                                               "2025-05":  4,
+                                                               "2025-07":  7,
+                                                               "2023-03":  7,
+                                                               "2021-04":  15,
+                                                               "2026-02":  31,
+                                                               "2023-04":  5,
+                                                               "2022-08":  19,
+                                                               "2021-01":  12,
+                                                               "2020-01":  8,
+                                                               "2022-10":  12,
+                                                               "2023-09":  3,
+                                                               "2024-05":  13,
+                                                               "2023-01":  21,
+                                                               "2024-02":  2,
+                                                               "2021-06":  14,
+                                                               "2024-08":  6,
+                                                               "2020-07":  13,
+                                                               "2025-01":  1,
+                                                               "2023-07":  16,
+                                                               "2022-06":  4,
+                                                               "2025-09":  1,
+                                                               "2019-12":  11,
+                                                               "2023-12":  1,
+                                                               "2021-03":  17,
+                                                               "2020-03":  12,
+                                                               "2020-08":  1,
+                                                               "2024-07":  1,
+                                                               "2021-05":  26,
+                                                               "2024-11":  1,
+                                                               "2022-04":  8,
+                                                               "2022-11":  13,
+                                                               "2019-10":  1,
+                                                               "2020-05":  5,
+                                                               "2021-12":  2,
+                                                               "2023-05":  6,
+                                                               "2025-04":  3
+                                                           },
+                           "merged_pr_count":  50,
+                           "file_types_top":  [
+                                                  {
+                                                      "extension":  "htm",
+                                                      "touched_files":  8472
+                                                  },
+                                                  {
+                                                      "extension":  "cs",
+                                                      "touched_files":  2052
+                                                  },
+                                                  {
+                                                      "extension":  "js",
+                                                      "touched_files":  1340
+                                                  },
+                                                  {
+                                                      "extension":  "scss",
+                                                      "touched_files":  1057
+                                                  },
+                                                  {
+                                                      "extension":  "map",
+                                                      "touched_files":  743
+                                                  },
+                                                  {
+                                                      "extension":  "csproj",
+                                                      "touched_files":  731
+                                                  },
+                                                  {
+                                                      "extension":  "cshtml",
+                                                      "touched_files":  558
+                                                  },
+                                                  {
+                                                      "extension":  "json",
+                                                      "touched_files":  502
+                                                  },
+                                                  {
+                                                      "extension":  "css",
+                                                      "touched_files":  460
+                                                  },
+                                                  {
+                                                      "extension":  "gif",
+                                                      "touched_files":  354
+                                                  },
+                                                  {
+                                                      "extension":  "dll",
+                                                      "touched_files":  281
+                                                  },
+                                                  {
+                                                      "extension":  "md",
+                                                      "touched_files":  268
+                                                  },
+                                                  {
+                                                      "extension":  "config",
+                                                      "touched_files":  196
+                                                  },
+                                                  {
+                                                      "extension":  "yml",
+                                                      "touched_files":  158
+                                                  },
+                                                  {
+                                                      "extension":  "png",
+                                                      "touched_files":  120
+                                                  },
+                                                  {
+                                                      "extension":  "sln",
+                                                      "touched_files":  78
+                                                  },
+                                                  {
+                                                      "extension":  "ico",
+                                                      "touched_files":  75
+                                                  },
+                                                  {
+                                                      "extension":  "razor",
+                                                      "touched_files":  72
+                                                  },
+                                                  {
+                                                      "extension":  "txt",
+                                                      "touched_files":  48
+                                                  },
+                                                  {
+                                                      "extension":  "(no-ext)",
+                                                      "touched_files":  47
+                                                  }
+                                              ],
+                           "largest_merges":  [
+                                                  {
+                                                      "sha":  "576fe8d3c7a37b5b1070377f31f6a7c75b3d3146",
+                                                      "subject":  "Merge pull request #37 from markhazleton/upgrade-to-NET10",
+                                                      "files_changed":  32,
+                                                      "additions":  2921,
+                                                      "deletions":  632,
+                                                      "total_lines":  3553
+                                                  },
+                                                  {
+                                                      "sha":  "fedc7c30946a43494ad8b7d9d0a18ed407c6d903",
+                                                      "subject":  "Merge branch \u0027main\u0027 into dependabot/github_actions/dot-github/workflows/actions/download-artifact-4.1.7",
+                                                      "files_changed":  21,
+                                                      "additions":  942,
+                                                      "deletions":  595,
+                                                      "total_lines":  1537
+                                                  },
+                                                  {
+                                                      "sha":  "3ece14061863207703868f02728dec6496efeee8",
+                                                      "subject":  "merge from main",
+                                                      "files_changed":  20,
+                                                      "additions":  281,
+                                                      "deletions":  306,
+                                                      "total_lines":  587
+                                                  },
+                                                  {
+                                                      "sha":  "18215052b57c4a6cf4a3cb28c6d95b07d586749c",
+                                                      "subject":  "merge from main",
+                                                      "files_changed":  20,
+                                                      "additions":  281,
+                                                      "deletions":  306,
+                                                      "total_lines":  587
+                                                  },
+                                                  {
+                                                      "sha":  "21fae9f0255095fb49223ac950946618e904567d",
+                                                      "subject":  "update from main",
+                                                      "files_changed":  20,
+                                                      "additions":  281,
+                                                      "deletions":  306,
+                                                      "total_lines":  587
+                                                  },
+                                                  {
+                                                      "sha":  "20c06a1b8acc43887c400775cda6198cc7b805dc",
+                                                      "subject":  "merge from remote",
+                                                      "files_changed":  35,
+                                                      "additions":  197,
+                                                      "deletions":  179,
+                                                      "total_lines":  376
+                                                  },
+                                                  {
+                                                      "sha":  "9aac240a5e855e97e4207a2f9499d00e16dc7dce",
+                                                      "subject":  "Merge pull request #30 from markhazleton/feature/Net8",
+                                                      "files_changed":  35,
+                                                      "additions":  176,
+                                                      "deletions":  164,
+                                                      "total_lines":  340
+                                                  },
+                                                  {
+                                                      "sha":  "0b690e5052b13000784f263abac125e55502cfb2",
+                                                      "subject":  "Merge pull request #29 from markhazleton/feature/UpdateNuGetPackages",
+                                                      "files_changed":  11,
+                                                      "additions":  109,
+                                                      "deletions":  93,
+                                                      "total_lines":  202
+                                                  },
+                                                  {
+                                                      "sha":  "c41242f19c27372d52b764dec44938265738c934",
+                                                      "subject":  "Merge pull request #26 from markhazleton/feature/UpdateNuGetPackages",
+                                                      "files_changed":  7,
+                                                      "additions":  100,
+                                                      "deletions":  72,
+                                                      "total_lines":  172
+                                                  },
+                                                  {
+                                                      "sha":  "056bca2328520f0be48fe70d1174f01200913b1e",
+                                                      "subject":  "Merge branch \u0027archive/NetFramework\u0027 of https://github.com/markhazleton/SampleMvcCRUD into archive/NetFramework",
+                                                      "files_changed":  1,
+                                                      "additions":  57,
+                                                      "deletions":  0,
+                                                      "total_lines":  57
+                                                  }
+                                              ]
+                       },
+    "commit_message_metrics":  {
+                                   "conventional_commit_count":  40,
+                                   "informal_commit_count":  5,
+                                   "spec_reference_commit_count":  0
+                               },
+    "test_metrics":  {
+                         "test_file_count":  13,
+                         "test_related_commit_count":  48
+                     },
+    "governance_maturity":  {
+                                "constitution_path":  "C:\\GitHub\\MarkHazleton\\UISampleSpark\\.documentation\\memory\\constitution.md",
+                                "constitution_exists":  true,
+                                "constitution_version":  "",
+                                "constitution_amendment_count":  0,
+                                "active_spec_count":  0,
+                                "archived_spec_directory_count":  0,
+                                "governance_artifact_count":  3
+                            },
+    "milestones":  {
+                       "tags":  [
+
+                                ],
+                       "readme_evolution":  {
+                                                "total_readme_commits":  37,
+                                                "commits":  [
+                                                                {
+                                                                    "sha":  "d78d43a221cc804493a1544956325f8d1d856056",
+                                                                    "date":  "2026-03-28T08:08:43-05:00",
+                                                                    "role":  "Developer C",
+                                                                    "subject":  "Add feature-flagged multi-key API protection and docs"
+                                                                },
+                                                                {
+                                                                    "sha":  "6788eb9726cd519824329ddff941a7dcb08e2649",
+                                                                    "date":  "2026-02-08T05:55:15-06:00",
+                                                                    "role":  "Developer C",
+                                                                    "subject":  "feat: Rebrand to UISampleSpark with modernized project structure"
+                                                                },
+                                                                {
+                                                                    "sha":  "86f3345cf5f6cdb630371a5541c3ce5f6df2de27",
+                                                                    "date":  "2026-02-06T06:17:24-06:00",
+                                                                    "role":  "Developer C",
+                                                                    "subject":  "Add React-based Employee CRUD implementation and update navigation"
+                                                                },
+                                                                {
+                                                                    "sha":  "95e2c65dfcf15ad4314ca7b19c66bfe1da093417",
+                                                                    "date":  "2026-02-05T13:56:48-06:00",
+                                                                    "role":  "Developer C",
+                                                                    "subject":  "Remove Azure Key Vault \u0026 App Insights integration"
+                                                                },
+                                                                {
+                                                                    "sha":  "86732536f26f1f4d70f67417a9fba21202cf5768",
+                                                                    "date":  "2026-02-05T10:35:35-06:00",
+                                                                    "role":  "Developer C",
+                                                                    "subject":  "Fix: Replace generic catch clauses with specific exception types (#83)"
+                                                                },
+                                                                {
+                                                                    "sha":  "bca3563163336dc0a0d4492805fa863faed4ba00",
+                                                                    "date":  "2025-11-16T15:47:23-06:00",
+                                                                    "role":  "Developer C",
+                                                                    "subject":  "Document history and add changelog"
+                                                                },
+                                                                {
+                                                                    "sha":  "727a1a2e0cf3b98c576f10ed2813d98d1388918e",
+                                                                    "date":  "2025-11-16T14:12:48-06:00",
+                                                                    "role":  "Developer C",
+                                                                    "subject":  "Upgrade to .NET 10.0 and refactor solution"
+                                                                },
+                                                                {
+                                                                    "sha":  "c8e19ca656abf1e114ac11803083eb28df28ce01",
+                                                                    "date":  "2025-05-24T17:00:35-05:00",
+                                                                    "role":  "Lead Architect",
+                                                                    "subject":  "Update README.md to enhance project description, add theme switcher details, and improve deployment instructions"
+                                                                },
+                                                                {
+                                                                    "sha":  "fbd7cd87b6881ee8b7fc713103f83c372b92fac6",
+                                                                    "date":  "2025-01-20T08:49:19-06:00",
+                                                                    "role":  "Lead Architect",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "d6ebc416f24237745e9f3278e1367ece3ca5886b",
+                                                                    "date":  "2024-09-24T08:12:03-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "15a392a0bb5cddaba2b3d81157a8dfdd02d4bee1",
+                                                                    "date":  "2024-03-28T12:19:50-05:00",
+                                                                    "role":  "Lead Architect",
+                                                                    "subject":  "Update Readme to point to moved resources"
+                                                                },
+                                                                {
+                                                                    "sha":  "2e3e78441c8d7ed932f539613c842cf687f5ba97",
+                                                                    "date":  "2024-03-20T17:44:50-05:00",
+                                                                    "role":  "Lead Architect",
+                                                                    "subject":  "Update for MarkHazleton.com"
+                                                                },
+                                                                {
+                                                                    "sha":  "ff06c88f3d02ca5aca5af23f51aedf1984b6142c",
+                                                                    "date":  "2023-04-18T14:27:00-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "08e3f1768d984d426032567f32c2768ed6e0d080",
+                                                                    "date":  "2023-02-07T08:44:27-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "c1a2023f50e8ff5e754f650c41c7c92746034301",
+                                                                    "date":  "2023-02-07T08:41:50-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "992f15e36e9b64957f608aed79d88ac7c6e01d10",
+                                                                    "date":  "2023-01-04T15:43:11-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "1fe84def3a8a4d5053c1fd01d56028fdc3fa27ab",
+                                                                    "date":  "2023-01-04T15:41:56-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "568d09aab85bc6e002e16af608c8752193b1a395",
+                                                                    "date":  "2023-01-04T15:35:18-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "57ea0d0d4e15927d20ff2ee891d3a37225078ef7",
+                                                                    "date":  "2022-09-28T08:45:15-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "a642b4ecd6279d90e8950f1d2fd5e047539502f6",
+                                                                    "date":  "2022-09-22T12:48:49-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "f394d11f73294dec0b0bddd3bf29859b031659d5",
+                                                                    "date":  "2022-09-22T11:29:15-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "0de90d2074331d05e4777a9f6b38e4036dd1a051",
+                                                                    "date":  "2022-04-30T09:58:22-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "NuGet Updates Standardize Name to Sample Mvc Crud"
+                                                                },
+                                                                {
+                                                                    "sha":  "45c590a3901326743b85d5851dd2f72cbfc4f402",
+                                                                    "date":  "2022-03-24T14:06:49-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "update documentation"
+                                                                },
+                                                                {
+                                                                    "sha":  "895579af70b7ae071f3595c6b2e4c4810a93c30d",
+                                                                    "date":  "2021-11-28T07:29:15-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "updates"
+                                                                },
+                                                                {
+                                                                    "sha":  "09b887f2b8e22422165fb187d8d3aab2809645b3",
+                                                                    "date":  "2021-11-10T17:12:26-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "580022a879eb48a189f8a1957953caea82eed042",
+                                                                    "date":  "2021-11-10T17:10:14-06:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "fca20644c18d1ff201e40eaf145d88a4d24374a7",
+                                                                    "date":  "2021-07-28T09:36:02-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "a4db78dd96d83b12b1ed81801570b0b08944a9aa",
+                                                                    "date":  "2021-07-28T09:34:23-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "1e8523d41809e6b2ed3f6eedffc925f48b832a6a",
+                                                                    "date":  "2021-07-09T08:25:42-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Code Clean-up (Code Maid) Fix Client Base to reset Rest Sharp  restRequest with each action (get/put/post/delete)"
+                                                                },
+                                                                {
+                                                                    "sha":  "ebab61da49efc78ee39dd7ae383a74e8861613eb",
+                                                                    "date":  "2021-04-22T15:33:45-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update Readme"
+                                                                },
+                                                                {
+                                                                    "sha":  "f3360ddd7601cdd4c8e257bc73fb476dcfdba163",
+                                                                    "date":  "2021-04-10T10:27:36-05:00",
+                                                                    "role":  "Lead Architect",
+                                                                    "subject":  "update readme"
+                                                                },
+                                                                {
+                                                                    "sha":  "8c376e79df08863213cf67e5949be6a86b6552e4",
+                                                                    "date":  "2020-04-06T16:10:33-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "d178a396b3cd320178c85494cd02e396d59acbc9",
+                                                                    "date":  "2020-04-06T12:02:48-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "da9bd5f9141491370e25cb1474376bd1984fd6a5",
+                                                                    "date":  "2020-03-23T07:31:00-05:00",
+                                                                    "role":  "Developer B",
+                                                                    "subject":  "Update Read Me"
+                                                                },
+                                                                {
+                                                                    "sha":  "468ba8ef1a974d0301bb7eb99723300ccdce0061",
+                                                                    "date":  "2019-05-05T18:36:43-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "dd857029cd8afbddd2094061ca049747d907d568",
+                                                                    "date":  "2019-04-25T18:57:02-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Update README.md"
+                                                                },
+                                                                {
+                                                                    "sha":  "1b39239d60de84bf43fa43620d0d4d2e7c4a78e3",
+                                                                    "date":  "2019-04-25T18:52:47-05:00",
+                                                                    "role":  "Developer A",
+                                                                    "subject":  "Create README.md"
+                                                                }
+                                                            ]
+                                            }
+                   },
+    "change_patterns":  {
+                            "subject_type_estimates":  {
+                                                           "refactor":  16,
+                                                           "chore":  22,
+                                                           "features":  115,
+                                                           "fixes":  35,
+                                                           "other":  353,
+                                                           "tests":  20,
+                                                           "docs":  58,
+                                                           "ci_build":  84
+                                                       },
+                            "hotspots":  [
+                                             {
+                                                 "path":  "Mwh.Sample.Web/Mwh.Sample.Web.csproj",
+                                                 "changes":  88
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Repository/Mwh.Sample.Repository.csproj",
+                                                 "changes":  52
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi/Mwh.Sample.WebApi.csproj",
+                                                 "changes":  47
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Domain.Tests/Mwh.Sample.Domain.Tests.csproj",
+                                                 "changes":  46
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Repository.Tests/Mwh.Sample.Repository.Tests.csproj",
+                                                 "changes":  43
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/Program.cs",
+                                                 "changes":  39
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi.Tests/Mwh.Sample.WebApi.Tests.csproj",
+                                                 "changes":  38
+                                             },
+                                             {
+                                                 "path":  "azure-pipelines.yml",
+                                                 "changes":  37
+                                             },
+                                             {
+                                                 "path":  "README.md",
+                                                 "changes":  37
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Domain/Mwh.Sample.Domain.csproj",
+                                                 "changes":  36
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Common/Mwh.Sample.Common.csproj",
+                                                 "changes":  35
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi/packages.config",
+                                                 "changes":  35
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.HttpClientFactory/Mwh.Sample.HttpClientFactory.csproj",
+                                                 "changes":  34
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Repository/Services/EmployeeDatabaseService.cs",
+                                                 "changes":  33
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi.Tests/packages.config",
+                                                 "changes":  28
+                                             },
+                                             {
+                                                 "path":  ".github/workflows/docker-image.yml",
+                                                 "changes":  28
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Core.WebApi/Mwh.Sample.Core.WebApi.csproj",
+                                                 "changes":  27
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Repository/Repository/EmployeeMock.cs",
+                                                 "changes":  27
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi/Web.config",
+                                                 "changes":  26
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Core.Data/Mwh.Sample.Core.Data.csproj",
+                                                 "changes":  25
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web.sln",
+                                                 "changes":  25
+                                             },
+                                             {
+                                                 "path":  "Mwh.SampleMvcCRUD/Mwh.SampleMvcCRUD.csproj",
+                                                 "changes":  22
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Common.Tests/Mwh.Sample.Common.Tests.csproj",
+                                                 "changes":  21
+                                             },
+                                             {
+                                                 "path":  "azure-pipelines-6.yml",
+                                                 "changes":  21
+                                             },
+                                             {
+                                                 "path":  ".github/workflows/main_samplecrud.yml",
+                                                 "changes":  19
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Domain/Models/EmployeeDto.cs",
+                                                 "changes":  19
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi.Tests/App.config",
+                                                 "changes":  18
+                                             },
+                                             {
+                                                 "path":  "Mwh.SampleCRUD/Mwh.SampleCRUD.csproj",
+                                                 "changes":  18
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Repository/Repository/EmployeeDB.cs",
+                                                 "changes":  18
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Core.Data.Tests/Mwh.Sample.Core.Data.Tests.csproj",
+                                                 "changes":  18
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Console/Mwh.Sample.Console.csproj",
+                                                 "changes":  18
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/Controllers/MvcEmployeeController.cs",
+                                                 "changes":  17
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/Views/Shared/_Layout.cshtml",
+                                                 "changes":  17
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/libman.json",
+                                                 "changes":  17
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/appsettings.json",
+                                                 "changes":  16
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Repository.Tests/Repository/EmployeeDBTests.cs",
+                                                 "changes":  16
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Common/Repositories/EmployeeRepository.cs",
+                                                 "changes":  15
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Repository.Tests/Services/EmployeeDatabaseServiceTests.cs",
+                                                 "changes":  15
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Console/Program.cs",
+                                                 "changes":  15
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/Dockerfile",
+                                                 "changes":  15
+                                             },
+                                             {
+                                                 "path":  "Mwh.SampleCRUD.sln",
+                                                 "changes":  15
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.HttpClientFactory/Clients/EmployeeRestClient.cs",
+                                                 "changes":  15
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Common/Repositories/EmployeeService.cs",
+                                                 "changes":  15
+                                             },
+                                             {
+                                                 "path":  "Mwh.SampleMvcCRUD/Startup.cs",
+                                                 "changes":  14
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi.Tests/Controllers/EmployeeApiControllerTests.cs",
+                                                 "changes":  14
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/Views/Home/Index.cshtml",
+                                                 "changes":  14
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi/Views/Shared/_Layout.cshtml",
+                                                 "changes":  14
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.SoapClient/Mwh.Sample.SoapClient.csproj",
+                                                 "changes":  14
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.WebApi/SwaggerConfig.cs",
+                                                 "changes":  14
+                                             },
+                                             {
+                                                 "path":  "Mwh.Sample.Web/Helpers/SeedDatabase.cs",
+                                                 "changes":  13
+                                             }
+                                         ]
+                        },
+    "technical_signals":  {
+                              "language_presence":  {
+                                                        "python":  false,
+                                                        "javascript":  true,
+                                                        "typescript":  true,
+                                                        "powershell":  true,
+                                                        "shell":  false,
+                                                        "markdown":  true
+                                                    },
+                              "has_pyproject_toml":  false,
+                              "has_package_json":  false,
+                              "has_dockerfile":  true,
+                              "has_github_actions":  true
+                          },
+    "recent":  {
+                   "commits":  [
+                                   {
+                                       "sha":  "63f7a1f3edc2cc8a93c6943313d8aeca38bf802f",
+                                       "date":  "2026-03-28T20:28:57-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "feat: Update SPECKIT_VERSION to 1.5.1, add repo story agent and context scripts"
+                                   },
+                                   {
+                                       "sha":  "bf514384bf93d4362f301273d55e228d08527c81",
+                                       "date":  "2026-03-28T15:24:11-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "feat: Add session summary and audit reports for constitution discovery and codebase audit"
+                                   },
+                                   {
+                                       "sha":  "53321948cbf797e9922ee46f5a8ed390651b5869",
+                                       "date":  "2026-03-28T08:38:35-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "feat: add speckit.archive, speckit.harvest, and speckit.upgrade agents with detailed documentation"
+                                   },
+                                   {
+                                       "sha":  "73c127d74dc6c028737352e5c5f0ca57a4b97441",
+                                       "date":  "2026-03-28T08:37:24-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Update Swashbuckle.AspNetCore to version 10.1.7 and coverlet.collector to version 8.0.1"
+                                   },
+                                   {
+                                       "sha":  "02b8c419f6be858aacdaa90f5c402c0555137803",
+                                       "date":  "2026-03-28T08:27:42-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Resolve final CodeQL source findings"
+                                   },
+                                   {
+                                       "sha":  "13ab3047c67170168efc282369e4832a9fcecf26",
+                                       "date":  "2026-03-28T08:15:04-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Reduce CodeQL findings in source and dismiss generated/high-risk accepted alerts"
+                                   },
+                                   {
+                                       "sha":  "d78d43a221cc804493a1544956325f8d1d856056",
+                                       "date":  "2026-03-28T08:08:43-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Add feature-flagged multi-key API protection and docs"
+                                   },
+                                   {
+                                       "sha":  "613e4d5e5705ceaf6837710f365fd993b08df4fc",
+                                       "date":  "2026-03-28T08:00:31-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Apply per-IP rate limiting to Minimal API endpoints"
+                                   },
+                                   {
+                                       "sha":  "6d25d4e38b6dfc77af8a1d2a53f022d68b4bb246",
+                                       "date":  "2026-03-28T07:59:40-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Add per-IP controller rate limiting (100 requests/minute)"
+                                   },
+                                   {
+                                       "sha":  "8e97572ffddf32edcf734b41b1aaf03b85ebd2bc",
+                                       "date":  "2026-03-28T07:57:07-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Fix path join handling in BaseController upload helper"
+                                   },
+                                   {
+                                       "sha":  "c0db5a36f705b43995ac2331520d453d95bad67b",
+                                       "date":  "2026-03-28T07:52:02-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Harden controller request validation for security findings"
+                                   },
+                                   {
+                                       "sha":  "6a40e87730bdb04d69e975b02b9e9ba022295b2b",
+                                       "date":  "2026-03-28T07:48:20-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Merge pull request #116 from markhazleton/dependabot/nuget/UISampleSpark.UI/dot-config/dotnet-ef-10.0.5"
+                                   },
+                                   {
+                                       "sha":  "6bd8ed65f0bc1df1d1d827ca125ca777cb0fb43b",
+                                       "date":  "2026-03-28T07:47:42-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Merge pull request #118 from markhazleton/dependabot/nuget/UISampleSpark.Core.Tests/coverlet.collector-8.0.1"
+                                   },
+                                   {
+                                       "sha":  "907cef4e87e338428fd64a29f6049911e71425e4",
+                                       "date":  "2026-03-28T07:47:07-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Merge pull request #120 from markhazleton/dependabot/nuget/UISampleSpark.UI/WebSpark.HttpClientUtility-2.5.0"
+                                   },
+                                   {
+                                       "sha":  "389a8fd53a96115152bc0b5c0e676b227a92a4ac",
+                                       "date":  "2026-03-28T07:39:57-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Fix Docker PR tag generation and update Buildx action"
+                                   },
+                                   {
+                                       "sha":  "71b246e68629856436f3a9dededba87653748b1e",
+                                       "date":  "2026-03-24T13:11:10Z",
+                                       "role":  "Developer D",
+                                       "subject":  "deps: Bump WebSpark.HttpClientUtility from 2.2.0 to 2.5.0"
+                                   },
+                                   {
+                                       "sha":  "bed6badcf643a047202a256db6aa78ee86d96db1",
+                                       "date":  "2026-03-17T13:11:41Z",
+                                       "role":  "Developer D",
+                                       "subject":  "test: Bump coverlet.collector from 8.0.0 to 8.0.1"
+                                   },
+                                   {
+                                       "sha":  "a83ef73654e560765eac538fd84da8764fc57be4",
+                                       "date":  "2026-03-17T13:11:21Z",
+                                       "role":  "Developer D",
+                                       "subject":  "deps: Bump dotnet-ef from 10.0.2 to 10.0.5"
+                                   },
+                                   {
+                                       "sha":  "2ab9c3c6694d7f2d419193e07371022689c30a4b",
+                                       "date":  "2026-03-14T15:52:12-05:00",
+                                       "role":  "Developer G",
+                                       "subject":  "Merge pull request #108 from markhazleton/dependabot/github_actions/actions/upload-artifact-7"
+                                   },
+                                   {
+                                       "sha":  "1395e0b6350086fd8b997d00a1ae76b05f1ef685",
+                                       "date":  "2026-03-14T15:52:10-05:00",
+                                       "role":  "Developer G",
+                                       "subject":  "Merge pull request #110 from markhazleton/dependabot/github_actions/docker/setup-qemu-action-4"
+                                   },
+                                   {
+                                       "sha":  "1a7f39162f8c874e12313c4ee5f1b1df34acd568",
+                                       "date":  "2026-03-14T15:52:08-05:00",
+                                       "role":  "Developer G",
+                                       "subject":  "Merge pull request #111 from markhazleton/dependabot/github_actions/docker/build-push-action-7"
+                                   },
+                                   {
+                                       "sha":  "f958472326380f0715656fde99c79271e04848dc",
+                                       "date":  "2026-03-14T15:52:06-05:00",
+                                       "role":  "Developer G",
+                                       "subject":  "Merge pull request #112 from markhazleton/dependabot/github_actions/docker/login-action-4"
+                                   },
+                                   {
+                                       "sha":  "64ec7aa2b809dee922db1b0baaf14801cb134d7b",
+                                       "date":  "2026-03-14T15:52:03-05:00",
+                                       "role":  "Developer G",
+                                       "subject":  "Merge pull request #113 from markhazleton/dependabot/github_actions/docker/metadata-action-6"
+                                   },
+                                   {
+                                       "sha":  "ba511ac201c2311d211720974e50dd0e096b28de",
+                                       "date":  "2026-03-14T20:40:14Z",
+                                       "role":  "Developer D",
+                                       "subject":  "ci(deps): bump docker/metadata-action from 5 to 6"
+                                   },
+                                   {
+                                       "sha":  "0b180a4c6f13b41b784d0c9c187900be23d0007e",
+                                       "date":  "2026-03-14T15:39:25-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: resolve 109 CodeQL security alerts and unblock Dependabot PRs"
+                                   },
+                                   {
+                                       "sha":  "464e21a3e7c0c1f546a93b5cd1aca3579311fd45",
+                                       "date":  "2026-03-14T14:25:05-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Rename project in package-lock.json to uisamplespark"
+                                   },
+                                   {
+                                       "sha":  "b61f1f9fb89813c961f8568764108253a8352b6a",
+                                       "date":  "2026-03-14T14:19:34-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "Update NuGet packages to latest patch versions"
+                                   },
+                                   {
+                                       "sha":  "68505a32404cb97130f50229d6ef642a97ec35f4",
+                                       "date":  "2026-03-14T19:12:14Z",
+                                       "role":  "Developer D",
+                                       "subject":  "ci(deps): bump docker/build-push-action from 6 to 7"
+                                   },
+                                   {
+                                       "sha":  "ad607a6dbc7299a78cf188170656b604c8b2ede9",
+                                       "date":  "2026-03-14T19:11:59Z",
+                                       "role":  "Developer D",
+                                       "subject":  "ci(deps): bump docker/setup-qemu-action from 3 to 4"
+                                   },
+                                   {
+                                       "sha":  "8ec6711ce3691682c5cb6b3e9e9559c9b243c4d8",
+                                       "date":  "2026-03-14T19:11:53Z",
+                                       "role":  "Developer D",
+                                       "subject":  "ci(deps): bump actions/upload-artifact from 6 to 7"
+                                   },
+                                   {
+                                       "sha":  "15611291774f0c545e9d06c3172b39ef55dd985c",
+                                       "date":  "2026-03-14T19:10:50Z",
+                                       "role":  "Developer D",
+                                       "subject":  "ci(deps): bump docker/login-action from 3 to 4"
+                                   },
+                                   {
+                                       "sha":  "87417e1d0da0b52c474eef25e9c318e4a228d211",
+                                       "date":  "2026-03-14T14:09:47-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: skip Docker login/push/test steps on pull requests"
+                                   },
+                                   {
+                                       "sha":  "846a547164733c2da2ad6d9031c77178d9719db8",
+                                       "date":  "2026-03-14T14:05:21-05:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: resolve CodeQL security alerts and unblock Dependabot PRs"
+                                   },
+                                   {
+                                       "sha":  "a0506bbb41a42dcc72bbf764de54c9b9ca2a8054",
+                                       "date":  "2026-02-08T06:55:52-06:00",
+                                       "role":  "Developer C",
+                                       "subject":  "docs: Add Docker Hub README and update script"
+                                   },
+                                   {
+                                       "sha":  "f00b62b6bcfd3b11ccb97d77c37e4fc680e0ea6b",
+                                       "date":  "2026-02-08T06:46:43-06:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: Make Application Insights telemetry optional"
+                                   },
+                                   {
+                                       "sha":  "3fa79ce041438629ea7af80214d39209adea9f60",
+                                       "date":  "2026-02-08T06:41:52-06:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: Remove --rm flag to capture crash logs"
+                                   },
+                                   {
+                                       "sha":  "adf3764d57d0eb99a5b0d09d5c4e1ed69fcaef58",
+                                       "date":  "2026-02-08T06:35:40-06:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: Improve Docker health check diagnostics"
+                                   },
+                                   {
+                                       "sha":  "4925a860a530061c23a0f58e785f60325ee0fe8f",
+                                       "date":  "2026-02-08T06:29:42-06:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: Correct Docker port mapping in workflow"
+                                   },
+                                   {
+                                       "sha":  "56d408d500e9b60a3cd730eac4400021c263ae15",
+                                       "date":  "2026-02-08T06:24:20-06:00",
+                                       "role":  "Developer C",
+                                       "subject":  "fix: Correct solution filename in Dockerfile"
+                                   },
+                                   {
+                                       "sha":  "ea6aa159f4bab76300fb878652d92fb283850eca",
+                                       "date":  "2026-02-08T06:21:39-06:00",
+                                       "role":  "Developer D",
+                                       "subject":  "ci(deps): bump actions/github-script from 7 to 8 (#87)"
+                                   }
+                               ]
+               }
+}

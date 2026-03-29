@@ -1,0 +1,214 @@
+{
+  "scope": "full",
+  "patterns": {
+    "quality": {
+      "todo_comments_total": 1,
+      "todo_comments": {
+        "type": "TODO",
+        "file": "UISampleSpark.Data/Repository/EmployeeMock.cs",
+        "text": "Update Department",
+        "line": 264
+      },
+      "long_functions": [],
+      "deep_nesting": []
+    },
+    "security": {
+      "insecure_patterns_total": 0,
+      "insecure_patterns": null,
+      "hardcoded_secrets_total": 0,
+      "hardcoded_secrets": null
+    },
+    "unused": {
+      "potential_dead_code": []
+    }
+  },
+  "packages": {
+    "manager": "nuget",
+    "manifest": "UISampleSpark.CLI.csproj",
+    "dependencies": {
+      "dev": [],
+      "direct": []
+    },
+    "lockfile": null,
+    "analysis": {
+      "outdated": [],
+      "unused": [],
+      "vulnerable": []
+    }
+  },
+  "metrics": {
+    "avg_lines_per_file": 308.9,
+    "large_files": [
+      {
+        "lines": 14148,
+        "file": "UISampleSpark.UI/wwwroot/lib/datatables/dataTables.js"
+      },
+      {
+        "lines": 7877,
+        "file": "UISampleSpark.UI/wwwroot/lib/jquery/jquery.js"
+      },
+      {
+        "lines": 1513,
+        "file": "UISampleSpark.UI/wwwroot/lib/jquery-validation/jquery.validate.js"
+      }
+    ],
+    "files_by_extension": {
+      ".js": 5,
+      ".cs": 100
+    },
+    "total_files": 105,
+    "lines_by_extension": {
+      ".js": 23625,
+      ".cs": 8812
+    },
+    "total_lines": 32437,
+    "max_lines_file": "UISampleSpark.UI/wwwroot/lib/datatables/dataTables.js",
+    "large_files_total": 3,
+    "max_lines": 14148
+  },
+  "repo_root": "C:/GitHub/MarkHazleton/UISampleSpark",
+  "timestamp": "2026-03-28T20:38:34Z",
+  "files": {
+    "counts": {
+      "tests": 0,
+      "source": 105,
+      "config": 20,
+      "documentation": 80,
+      "scripts": 17,
+      "build": 2
+    },
+    "tests": null,
+    "source": [
+      "UISampleSpark.CLI/Program.cs",
+      "UISampleSpark.CLI/Usings.cs",
+      "UISampleSpark.Core/GlobalUsings.cs",
+      "UISampleSpark.Core/Extensions/EnumerableExtensions.cs",
+      "UISampleSpark.Core/Extensions/EnumExtension.cs",
+      "UISampleSpark.Core/Extensions/ImageExtensions.cs",
+      "UISampleSpark.Core/Extensions/LogExtensions.cs",
+      "UISampleSpark.Core/Extensions/PropertyBag.cs",
+      "UISampleSpark.Core/Extensions/StringExtensions.cs",
+      "UISampleSpark.Core/Extensions/TreeNode.cs",
+      "UISampleSpark.Core/Interfaces/IEmployeeClient.cs",
+      "UISampleSpark.Core/Interfaces/IEmployeeDB.cs",
+      "UISampleSpark.Core/Interfaces/IEmployeeRepository.cs",
+      "UISampleSpark.Core/Interfaces/IEmployeeService.cs",
+      "UISampleSpark.Core/Models/ApplicationStatus.cs",
+      "UISampleSpark.Core/Models/BaseResponse.cs",
+      "UISampleSpark.Core/Models/BuildVersion.cs",
+      "UISampleSpark.Core/Models/DepartmentDto.cs",
+      "UISampleSpark.Core/Models/DepartmentResponse.cs",
+      "UISampleSpark.Core/Models/EmployeeDepartmentEnum.cs",
+      "UISampleSpark.Core/Models/EmployeeDto.cs",
+      "UISampleSpark.Core/Models/EmployeeDtoValidationException.cs",
+      "UISampleSpark.Core/Models/EmployeeGenderEnum.cs",
+      "UISampleSpark.Core/Models/EmployeeList.cs",
+      "UISampleSpark.Core/Models/EmployeeResponse.cs"
+    ],
+    "config": [
+      ".hadolint.yaml",
+      "global.json",
+      ".claude/settings.local.json",
+      ".documentation/copilot/audit/site-audit-raw.json",
+      ".documentation/repo-story/history.json",
+      ".github/dependabot.yml",
+      ".github/codeql/codeql-config.yml",
+      ".github/workflows/codeql-analysis.yml",
+      ".github/workflows/docker-image.yml",
+      ".github/workflows/test-build.yml",
+      ".vscode/settings.json",
+      "UISampleSpark.MinimalApi/appsettings.Development.json",
+      "UISampleSpark.MinimalApi/appsettings.json",
+      "UISampleSpark.MinimalApi/Properties/launchSettings.json",
+      "UISampleSpark.UI/appsettings.Development.json",
+      "UISampleSpark.UI/appsettings.json",
+      "UISampleSpark.UI/package-lock.json",
+      "UISampleSpark.UI/package.json",
+      "UISampleSpark.UI/.config/dotnet-tools.json",
+      "UISampleSpark.UI/Properties/launchSettings.json"
+    ],
+    "documentation": [
+      "CHANGELOG.md",
+      "CLAUDE.md",
+      "CODE_OF_CONDUCT.md",
+      "CONTRIBUTING.md",
+      "DOCKER_README.md",
+      "README.md",
+      "SECURITY.md",
+      ".documentation/copilot/harvest-2026-03-28.md",
+      ".documentation/copilot/archive/CLEANUP_SUMMARY.md",
+      ".documentation/copilot/archive/GITHUB_ACTIONS_FIX_SUMMARY.md",
+      ".documentation/copilot/archive/WARNING_CLEANUP_SUMMARY.md",
+      ".documentation/copilot/archive/upgrades/assessment.md",
+      ".documentation/copilot/archive/upgrades/commit-message.txt",
+      ".documentation/copilot/archive/upgrades/execution-log.md",
+      ".documentation/copilot/archive/upgrades/plan.md",
+      ".documentation/copilot/archive/upgrades/tasks.md",
+      ".documentation/copilot/archive/upgrades/UPGRADE-SUMMARY.md",
+      ".documentation/copilot/audit/2026-03-28_results.md",
+      ".documentation/copilot/drafts/48-hour-transformation-journey.md",
+      ".documentation/copilot/drafts/constitution-draft.md",
+      ".documentation/memory/constitution.md",
+      ".documentation/reference/ACTIONS_FAILURES_ANALYSIS.md",
+      ".documentation/reference/ACTIONS_FIX_CHECKLIST.md",
+      ".documentation/reference/CODEQL_MIGRATION.md",
+      ".documentation/reference/GITHUB_ACTIONS_TROUBLESHOOTING.md"
+    ],
+    "scripts": [
+      "update-dockerhub-readme.ps1",
+      ".documentation/scripts/powershell/archive-context.ps1",
+      ".documentation/scripts/powershell/check-prerequisites.ps1",
+      ".documentation/scripts/powershell/common.ps1",
+      ".documentation/scripts/powershell/create-new-feature.ps1",
+      ".documentation/scripts/powershell/evolution-context.ps1",
+      ".documentation/scripts/powershell/get-pr-context.ps1",
+      ".documentation/scripts/powershell/harvest.ps1",
+      ".documentation/scripts/powershell/migrate-to-documentation.ps1",
+      ".documentation/scripts/powershell/quickfix-context.ps1",
+      ".documentation/scripts/powershell/release-context.ps1",
+      ".documentation/scripts/powershell/repo-story-context.ps1",
+      ".documentation/scripts/powershell/setup-plan.ps1",
+      ".documentation/scripts/powershell/site-audit.ps1",
+      ".documentation/scripts/powershell/sync-upstream.ps1",
+      ".documentation/scripts/powershell/update-agent-context.ps1",
+      ".github/scripts/check-dependabot.ps1"
+    ],
+    "build": [
+      "UISampleSpark.MinimalApi/Dockerfile",
+      "UISampleSpark.UI/Dockerfile"
+    ]
+  },
+  "pre_scan_limits": {
+    "include_full_inventory": false,
+    "large_file_limit": 20,
+    "sample_limit": 25,
+    "pattern_sample_limit": 25
+  },
+  "constitution": {
+    "exists": true,
+    "principles": [
+      "I. Code Quality & Safety (MANDATORY)",
+      "II. Architecture & Design Patterns (MANDATORY)",
+      "III. Error Handling & API Contracts (MANDATORY)",
+      "IV. Security Posture (EDUCATIONAL SCOPE)",
+      "V. Testing Standards (ENCOURAGED)",
+      "VI. CI/CD & DevOps (MANDATORY)",
+      "VII. Observability & Health (RECOMMENDED)",
+      "VIII. Documentation Standards (RECOMMENDED)",
+      "IX. Dependency Management (MANDATORY)",
+      "X. Docker & Containerization (MANDATORY)",
+      "XI. AI-Assisted Development & Documentation Organization (MANDATORY)",
+      "Build Configuration",
+      "Web Configuration",
+      "Editor Configuration",
+      "Amendment Process",
+      "Compliance",
+      "Educational Mission Priority",
+      "Review Schedule",
+      "Change Log"
+    ],
+    "version": "1.0.0 (Initial Release)  \r\n**Ratified**: 2026-02-05  \r\n**Last Amended**: 2026-02-05  \r\n**Discovery Source**: Analyzed 94 C# source files, 10 project files, 5 workflow/config files  \r\n**Principles Formalized**: 11 core + 16 observed patterns\r\n\r\n### Change Log\r\n- **v1.0.0** (2026-02-05): Initial constitution ratified based on codebase discovery\r\n  - Formalized 11 core principles from existing patterns\r\n  - Documented educational security scope\r\n  - Established 25% test coverage baseline goal\r\n  - Mandated CI/CD workflows (test, security, Docker)\r\n  - Defined AI-assisted development documentation structure",
+    "path": ".documentation/memory/constitution.md"
+  },
+  "audit_dir": ".documentation/copilot/audit"
+}

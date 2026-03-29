@@ -261,7 +261,7 @@ public class EmployeeMock : IEmployeeDB
     {
         await Task.Run(() =>
         {
-            // TODO: Update Department
+            // Mock implementation: returns dept unchanged (no persistent store)
         });
         return dept;
     }

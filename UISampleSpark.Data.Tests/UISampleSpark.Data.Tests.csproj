@@ -17,7 +17,7 @@
 
   <!-- Code Analysis Settings for Tests -->
   <PropertyGroup>
-    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <AnalysisLevel>latest-all</AnalysisLevel>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 

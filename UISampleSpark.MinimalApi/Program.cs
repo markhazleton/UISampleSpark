@@ -5,6 +5,7 @@ using UISampleSpark.Core.Models;
 using UISampleSpark.Data.Models;
 using UISampleSpark.Data.Services;
 using UISampleSpark.MinimalApi.Helpers;
+using UISampleSpark.MinimalApi.Middleware;
 using System.Threading.RateLimiting;
 using System.Security.Cryptography;
 using System.Text;
@@ -12,6 +13,9 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddHealthChecks();
 builder.Services.AddRateLimiter(options =>
 {
     options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
@@ -77,13 +81,13 @@ ValueTask<object?> ApiKeyFilter(EndpointFilterInvocationContext context, Endpoin
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseExceptionHandler();
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseRateLimiter();
+
+app.MapHealthChecks("/health");
 
 app.MapPost("/employees", async (IEmployeeService employeeService, EmployeeDto employee, CancellationToken token) =>
 {

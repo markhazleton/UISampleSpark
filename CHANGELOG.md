@@ -3,6 +3,54 @@
 This document captures notable milestones extracted from the git history of `UISampleSpark`. For visual commit-density analytics generated with the Mark Hazleton `git-spark` npm package, open `reports/git-spark-report.html` in a browser.
 
 ## 2026
+
+### v10.0.1 — .NET 10 Refresh *(Tag: v10.0.1, Mar 28 2026)*
+
+A comprehensive hardening, governance, and multi-UI expansion release building on the .NET 10 migration.
+
+#### Security & Hardening
+- Resolved **109 CodeQL security alerts** across the codebase
+- Added **per-IP rate limiting** (100 req/min) to both MVC/API and Minimal API hosts
+- Added **feature-flagged multi-key API protection** on Minimal API endpoints
+- Hardened controller request validation (path traversal, input sanitization)
+- Fixed path-join handling in BaseController upload helper
+- Added `IExceptionHandler` with RFC 7807 `ProblemDetails` to Minimal API host
+
+#### Architecture & Quality
+- Added `/health` endpoint and always-on Swagger to Minimal API (Principle VII compliance)
+- Elevated `AnalysisLevel` to `latest-all` across all projects including test projects (Principle I compliance)
+- Resolved stale TODO in EmployeeMock and improved mock implementation comments
+- Full constitution compliance audit — 82% → all 5 findings remediated
+
+#### Multi-UI Front-Ends
+- **React 18** Employee CRUD (`/EmployeeReact`) with hooks, Fetch API, sortable columns, pagination, modal forms, and toast notifications
+- **htmx** Employee CRUD with server-driven partial updates
+- **Vue 3** Employee CRUD with reactive data binding
+- **Blazor** interactive Employee CRUD components
+
+#### Governance & Documentation
+- Ratified **project constitution v1.0.0** (11 core principles, Feb 2026)
+- Rebranded from SampleMvcCRUD to **UISampleSpark** with modernized project structure
+- Added repository story narrative (703 commits, 7 years of history)
+- Added Docker Hub README and publishing script
+- Integrated Spec Kit Spark agent workflows (archive, harvest, upgrade, site-audit, repo-story)
+
+#### Dependencies & CI/CD
+- `Swashbuckle.AspNetCore` → 10.1.7
+- `WebSpark.HttpClientUtility` → 2.5.0
+- `coverlet.collector` → 8.0.1
+- `dotnet-ef` → 10.0.5
+- `SkiaSharp` and Azure container tooling refreshed
+- GitHub Actions: `docker/build-push-action` v7, `docker/login-action` v4, `docker/setup-qemu-action` v4, `docker/metadata-action` v6, `actions/upload-artifact` v7
+- Fixed Docker PR tag generation and Buildx action updates
+- Made Application Insights telemetry optional
+
+#### Tests
+- **240 tests passing** (0 failures) across Core.Tests and Data.Tests
+- Sampled coverage: StringExtensions 100%, EmployeeDto 91%, EmployeeDatabaseService 93.5%
+
+---
+
 - **Mar 24-28** – Hardened API surfaces with per-IP rate limiting in both MVC/API and Minimal API hosts, added feature-flagged multi-key API protection, and reduced CodeQL findings with targeted source fixes. Also refreshed key dependencies (`Swashbuckle.AspNetCore` 10.1.7, `coverlet.collector` 8.0.1, `WebSpark.HttpClientUtility` 2.5.0) and added Speckit archive/harvest/upgrade agent workflow assets.
 - **Feb 6** – Added a React 18 Employee CRUD implementation (`/EmployeeReact`) with functional components, hooks, and Fetch API. Introduced a dedicated `_LayoutReact.cshtml` layout loading React/Babel via CDN to isolate from jQuery-based pages. Features include sortable columns, search/filter, pagination, modal forms with Bootstrap 5 validation, delete confirmation dialog, and toast notifications.
 
