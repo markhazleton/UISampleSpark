@@ -2,6 +2,22 @@
 
 All agents working in this repository MUST follow the project constitution at `/.documentation/memory/constitution.md`.
 
+## DevSpark Workflow (v1.5.0)
+
+This repo uses **spec-driven development** via DevSpark agents. Always prefer the full lifecycle:
+
+1. `@devspark.specify` — Create feature spec from natural language
+2. `@devspark.plan` — Generate technical implementation plan
+3. `@devspark.tasks` — Break plan into actionable task list
+4. `@devspark.implement` — Execute tasks against the plan
+
+Lightweight fixes: `@devspark.quickfix` (skip full spec cycle).
+Reviews: `@devspark.pr-review` | Audits: `@devspark.site-audit` | Cleanup: `@devspark.harvest`
+
+- Feature specs: `/.documentation/features/{feature-name}/`
+- Audit reports: `/.documentation/copilot/audit/`
+- Framework files (do not edit): `.devspark/`
+
 ## Project Overview
 
 Educational ASP.NET Core project exploring multiple front-end UI technologies (MVC, Razor Pages, React, Vue, htmx, Blazor). Not production-ready by design (no auth).
