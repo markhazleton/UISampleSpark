@@ -413,3 +413,6 @@ ehthumbs_vista.db
 # Application Insights
 ApplicationInsights.config
 nul
+
+# DevSpark - personal overrides (never commit)
+.documentation/*/commands/
